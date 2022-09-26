@@ -1,0 +1,186 @@
+syntax = "proto3";
+
+package external;
+
+option go_package = "github.com/yu31/protoc-plugin-defaults/xgo/tests/pb/pbexternal";
+
+import "google/protobuf/any.proto";
+import "google/protobuf/duration.proto";
+import "google/protobuf/timestamp.proto";
+
+enum Month1 {
+  Month1Unset = 0;
+  January  = 1;
+  February = 3;
+  March    = 6;
+  April    = 9;
+  May      = 12;
+  June     = 15;
+}
+
+enum Month2 {
+  Month2Unset = 0;
+  July      = 1;
+  August    = 3;
+  September = 6;
+  October   = 9;
+  November  = 12;
+  December  = 15;
+}
+
+message EnumWeek1 {
+  enum Week {
+    WeekUnset = 0;
+    Monday    = 1;
+    Tuesday   = 3;
+    Wednesday = 6;
+    Thursday  = 9;
+    Friday    = 12;
+    Saturday  = 15;
+    Sunday    = 18;
+  }
+}
+
+message EnumWeek2 {
+  message Embed1 {
+    enum Week {
+      WeekUnset = 0;
+      Monday    = 1;
+      Tuesday   = 3;
+      Wednesday = 6;
+      Thursday  = 9;
+      Friday    = 12;
+      Saturday  = 15;
+      Sunday    = 18;
+    }
+  }
+}
+
+message External1 {
+  float    t_float    = 19;
+  double   t_double   = 20;
+  int32    t_int32    = 1;
+  sint32   t_sint32   = 2;
+  sfixed32 t_sfixed32 = 3;
+  int64    t_int64    = 4;
+  sint64   t_sint64   = 5;
+  sfixed64 t_sfixed64 = 6;
+  uint32   t_uint32   = 7;
+  uint64   t_uint64   = 8;
+  fixed32  t_fixed32  = 9;
+  fixed64  t_fixed64  = 10;
+  bool     t_bool     = 11;
+  string   t_string   = 12;
+  bytes    t_bytes    = 13;
+  Month1   t_enum1    = 14;
+  Month2   t_enum2    = 15;
+  google.protobuf.Any t_any             = 16;
+  google.protobuf.Timestamp t_timestamp = 17;
+  google.protobuf.Duration t_duration   = 18;
+
+  optional float    p_float    = 119;
+  optional double   p_double   = 120;
+  optional int32    p_int32 = 101;
+  optional sint32   p_sint32 = 102;
+  optional sfixed32 p_sfixed32 = 103;
+  optional int64    p_int64 = 104;
+  optional sint64   p_sint64 = 105;
+  optional sfixed64 p_sfixed64 = 106;
+  optional uint32   p_uint32 = 107;
+  optional uint64   p_uint64 = 108;
+  optional fixed32  p_fixed32 = 109;
+  optional fixed64  p_fixed64 = 110;
+  optional bool     p_bool = 111;
+  optional string   p_string = 112;
+  optional bytes    p_bytes = 113;
+  optional Month1   p_enum1 = 114;
+  optional Month2   p_enum2 = 115;
+  optional google.protobuf.Any p_any             = 116;
+  optional google.protobuf.Timestamp p_timestamp = 117;
+  optional google.protobuf.Duration p_duration   = 118;
+
+  oneof OneOfType1 {
+    float    o_float    = 219;
+    double   o_double   = 220;
+    int32    o_int32    = 201;
+    sint32   o_sint32   = 202;
+    sfixed32 o_sfixed32 = 203;
+    int64    o_int64    = 204;
+    sint64   o_sint64   = 205;
+    sfixed64 o_sfixed64 = 206;
+    uint32   o_uint32   = 207;
+    uint64   o_uint64   = 208;
+    fixed32  o_fixed32  = 209;
+    fixed64  o_fixed64  = 210;
+    bool     o_bool     = 211;
+    string   o_string   = 212;
+    bytes    o_bytes    = 213;
+    Month1   o_enum1    = 214;
+    Month2   o_enum2    = 215;
+    google.protobuf.Any o_any             = 216;
+    google.protobuf.Timestamp o_timestamp = 217;
+    google.protobuf.Duration o_duration   = 218;
+  }
+
+  repeated float    r_float    = 319;
+  repeated double   r_double   = 320;
+  repeated int32    r_int32    = 301;
+  repeated sint32   r_sint32   = 302;
+  repeated sfixed32 r_sfixed32 = 303;
+  repeated int64    r_int64    = 304;
+  repeated sint64   r_sint64   = 305;
+  repeated sfixed64 r_sfixed64 = 306;
+  repeated uint32   r_uint32   = 307;
+  repeated uint64   r_uint64   = 308;
+  repeated fixed32  r_fixed32  = 309;
+  repeated fixed64  r_fixed64  = 310;
+  repeated bool     r_bool     = 311;
+  repeated string   r_string   = 312;
+  repeated bytes    r_bytes    = 313;
+  repeated Month1   r_enum1    = 314;
+  repeated Month2   r_enum2    = 315;
+  repeated google.protobuf.Any r_any             = 316;
+  repeated google.protobuf.Timestamp r_timestamp = 317;
+  repeated google.protobuf.Duration r_duration   = 318;
+
+  map<string, float>    m_float    = 419;
+  map<string, double>   m_double   = 420;
+  map<string, int32>    m_int32    = 401;
+  map<string, sint32>   m_sint32   = 402;
+  map<string, sfixed32> m_sfixed32 = 403;
+  map<string, int64>    m_int64    = 404;
+  map<string, sint64>   m_sint64   = 405;
+  map<string, sfixed64> m_sfixed64 = 406;
+  map<string, uint32>   m_uint32   = 407;
+  map<string, uint64>   m_uint64   = 408;
+  map<string, fixed32>  m_fixed32  = 409;
+  map<string, fixed64>  m_fixed64  = 410;
+  map<string, bool>     m_bool     = 411;
+  map<string, string>   m_string   = 412;
+  map<string, bytes>    m_bytes    = 413;
+  map<string, Month1>   m_enum1    = 414;
+  map<string, Month2>   m_enum2    = 415;
+  map<string, google.protobuf.Any>       m_any       = 416;
+  map<string, google.protobuf.Timestamp> m_timestamp = 417;
+  map<string, google.protobuf.Duration>  m_duration  = 418;
+}
+
+message External2 {
+  message Embed1 {
+    string t_string1 = 1;
+    string t_string2 = 2;
+  }
+
+  External1 p1 = 1;
+  Embed1    p2 = 2;
+
+  repeated External1 r1 = 11;
+  repeated Embed1 r2 = 12;
+
+  map<string, External1> m1 = 21;
+  map<string, Embed1> m2 = 22;
+}
+
+message External3 {
+  string t_string = 1;
+}

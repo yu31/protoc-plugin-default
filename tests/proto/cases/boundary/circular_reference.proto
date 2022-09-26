@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package circular_reference;
+
+option go_package = "xgo/tests/pb/boundary/pbcr";
+
+import "proto/defaults.proto";
+
+message CRMessageA {
+  string t1  = 1 [ (defaults.field).plain = { value: { string: "123" } } ];
+
+  CRMessageB msgB = 12 [ (defaults.field).plain = { value: { message: { init: true } }; skip_eval: false } ];
+}
+
+message CRMessageB {
+  string t1  = 1 [ (defaults.field).plain = { value: { string: "456" } } ];
+
+  CRMessageC msgC = 13 [ (defaults.field).plain = { value: { message: { init: true } }; skip_eval: false } ];
+}
+
+message CRMessageC {
+  string t1  = 1 [ (defaults.field).plain = { value: { string: "789" } } ];
+
+  CRMessageA msgA = 11 [ (defaults.field).plain = { value: { message: { init: true } }; skip_eval: false } ];
+}

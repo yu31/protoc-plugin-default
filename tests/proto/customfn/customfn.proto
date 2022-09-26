@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package customfn;
+
+option go_package = "xgo/tests/pb/pbcustomfn";
+
+import "proto/defaults.proto";
+
+message CustomMethodFuncName1 {
+  string f1 = 1 [ (defaults.field).plain.value = { string: "123" } ];
+}
+
+message CustomMethodFuncName2 {
+  string f1 = 1 [ (defaults.field).plain.value = { string: "123" } ];
+
+  CustomMethodFuncName1 m1 = 11 [ (defaults.field).plain = { value: { message: { init: true } } } ];
+}

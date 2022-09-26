@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package string;
+
+option go_package = "xgo/tests/pb/pbinvalid";
+
+//import "google/protobuf/any.proto";
+//import "google/protobuf/duration.proto";
+//import "google/protobuf/timestamp.proto";
+//
+//import "tests/proto/module/external.proto";
+
+import "proto/defaults.proto";
+
+message String13 {
+  string field13 = 13 [ (defaults.field).plain = { value: { double: 0 } } ];
+}

@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package double;
+
+option go_package = "xgo/tests/pb/pbinvalid";
+
+//import "google/protobuf/any.proto";
+//import "google/protobuf/duration.proto";
+//import "google/protobuf/timestamp.proto";
+//
+//import "tests/proto/module/external.proto";
+
+import "proto/defaults.proto";
+
+message Double04 {
+  double field04 = 4 [ (defaults.field).plain = { value: { sint32: 0 } } ];
+}

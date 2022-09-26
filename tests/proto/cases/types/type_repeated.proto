@@ -1,0 +1,416 @@
+syntax = "proto3";
+
+package type_repeated;
+
+option go_package = "xgo/tests/pb/pbtypes";
+
+import "google/protobuf/any.proto";
+import "google/protobuf/duration.proto";
+import "google/protobuf/timestamp.proto";
+
+import "tests/proto/module/external.proto";
+
+import "tests/proto/cases/types/type_common.proto";
+
+import "proto/defaults.proto";
+
+// EnumRepeated1 used tests cases in this file.
+enum EnumRepeated1 {
+  Zero  = 0;
+  One   = 2;
+  Two   = 3;
+  Three = 5;
+  Four  = 6;
+  Five  = 7;
+  Six   = 9;
+  Seven = 11;
+  Eight = 12;
+  Nine  = 15;
+  Ten   = 17;
+}
+
+// MessageRepeated1 used tests cases in this file.
+message MessageRepeated1 {
+  message Embed1 {
+    message Embed2 {
+      string f_string1 = 1 [ (defaults.field).plain = { value: { string: "1" } } ];
+      string f_string2 = 2 [ (defaults.field).plain = { value: { string: "2" } } ];
+      string f_string3 = 3 [ (defaults.field).plain = { value: { string: "3" } } ];
+    }
+    string f_string1 = 1 [ (defaults.field).plain = { value: { string: "x" } } ];
+    string f_string2 = 2 [ (defaults.field).plain = { value: { string: "y" } } ];
+    string f_string3 = 3 [ (defaults.field).plain = { value: { string: "z" } } ];
+  }
+  string f_string1 = 1 [ (defaults.field).plain = { value: { string: "a" } } ];
+  string f_string2 = 2 [ (defaults.field).plain = { value: { string: "b" } } ];
+  string f_string3 = 3 [ (defaults.field).plain = { value: { string: "c" } } ];
+}
+
+// Test cases for ignore_empty is false.
+message TypeRepeated1 {
+  repeated string f_string1 = 1 [ (defaults.field).repeated = {
+    items: [
+      { string: "ts1" }, { string: "" }, { string: '""' },
+      { string: '"ts4"' }, { string: '"ts5"' }, { string: '"ts\"6"' },
+      { string: '"ts"7"' }, { string: '[ts8]' }, { string: '{ts9}' },
+      {}, {}
+    ];
+  } ];
+
+  repeated int32 f_int32 = 11 [ (defaults.field).repeated = {
+    items: [ { int32: 11 }, { int32: 12 }, { int32: 13 }, {}, {} ];
+    ignore_empty: false;
+  } ];
+
+  repeated int64 f_int64 = 12 [ (defaults.field).repeated = {
+    items: [ { int64: 21 }, { int64: 22 }, { int64: 23 }, {}, {} ];
+  } ];
+
+  repeated uint32 f_uint32 = 13 [ (defaults.field).repeated = {
+    items: [ { uint32: 31 }, { uint32: 32 }, { uint32: 33 }, {}, {} ];
+    ignore_empty: false;
+  } ];
+
+  repeated uint64 f_uint64 = 14 [ (defaults.field).repeated = {
+    items: [ { uint64: 41 }, { uint64: 42 }, { uint64: 43 }, {}, {} ];
+  } ];
+
+  repeated sint32 f_sint32 = 15 [ (defaults.field).repeated = {
+    items: [ { sint32: 51 }, { sint32: 52 }, { sint32: 53 }, {}, {} ];
+    ignore_empty: false;
+  } ];
+
+  repeated sint64 f_sint64 = 16 [ (defaults.field).repeated = {
+    items: [ { sint64: 61 }, { sint64: 62 }, { sint64: 63 }, {}, {} ];
+  } ];
+
+  repeated sfixed32 f_sfixed32 = 17 [ (defaults.field).repeated = {
+    items: [ { sfixed32: 71 }, { sfixed32: 72 }, { sfixed32: 73 }, {}, {} ];
+    ignore_empty: false;
+  } ];
+
+  repeated sfixed64 f_sfixed64 = 18 [ (defaults.field).repeated = {
+    items: [ { sfixed64: 81 }, { sfixed64: 82 }, { sfixed64: 83 }, {}, {} ];
+  } ];
+
+  repeated fixed32 f_fixed32 = 19 [ (defaults.field).repeated = {
+    items: [ { fixed32: 91 }, { fixed32: 92 }, { fixed32: 93 }, {}, {} ];
+    ignore_empty: false;
+  } ];
+
+  repeated fixed64 f_fixed64 = 20 [ (defaults.field).repeated = {
+    items: [ { fixed64: 101 }, { fixed64: 102 }, { fixed64: 103 }, {}, {} ];
+  } ];
+
+  repeated float f_float = 21 [ (defaults.field).repeated = {
+    items: [ { float: 111.111 }, { float: 112.112 }, { float: 113.113 }, {}, {} ];
+    ignore_empty: false;
+  } ];
+
+  repeated double f_double = 22 [ (defaults.field).repeated = {
+    items: [ { double: 121.121 }, { double: 122.122 }, { double: 123.123 }, {}, {} ];
+  } ];
+
+  repeated bool f_bool1 = 31 [ (defaults.field).repeated = {
+    items: [ { bool: true }, { bool: false }, { bool: true }, {}, {} ];
+    ignore_empty: false;
+  } ];
+
+  repeated bytes f_bytes1 = 41 [ (defaults.field).repeated = {
+    items: [ { bytes: "abc" }, { bytes: "" }, { bytes: "123" }, {}, {} ];
+  } ];
+
+  repeated EnumRepeated1 f_enum1 = 51 [ (defaults.field).repeated = {
+    items: [ { enum: 1 }, { enum: 3 }, { enum: 5 }, {}, {} ];
+    ignore_empty: false;
+  } ];
+
+  repeated EnumRepeated1 f_enum2 = 52 [ (defaults.field).repeated = {
+    items: [ { enum: 2 }, { enum: 4 }, { enum: 6 }, {}, {} ];
+  } ];
+
+  repeated external.Month1 f_enum3 = 53 [ (defaults.field).repeated = {
+    items: [ { enum: 1 }, { enum: 3 }, { enum: 5 }, {}, {} ];
+    ignore_empty: false;
+  } ];
+
+  repeated external.Month2 f_enum4 = 54 [ (defaults.field).repeated = {
+    items: [ { enum: 2 }, { enum: 4 }, { enum: 6 }, {}, {} ];
+  } ];
+
+  repeated external.EnumWeek1.Week f_enum5 = 55 [ (defaults.field).repeated = {
+    items: [ { enum: 1 }, { enum: 3 }, { enum: 5 }, {}, {} ];
+    ignore_empty: false;
+  } ];
+
+  repeated external.EnumWeek2.Embed1.Week f_enum6 = 56 [ (defaults.field).repeated = {
+    items: [ { enum: 2 }, { enum: 4 }, { enum: 6 }, {}, {} ];
+  } ];
+
+  repeated type_common.EnumCommon1 f_enum7 = 57 [ (defaults.field).repeated = {
+    items: [ { enum: 2 }, { enum: 4 }, { enum: 6 }, {}, {} ];
+  } ];
+
+  repeated google.protobuf.Duration f_duration1 = 61 [ (defaults.field).repeated = {
+    items: [
+      { duration: { seconds: 100, nanos: 200 } },
+      { duration: { seconds: 0, nanos: 0 } },
+      { duration: { seconds: 102, nanos: 202 } },
+      { duration: {} },
+      {},
+      {}
+    ];
+    ignore_empty: false;
+  } ];
+
+  repeated google.protobuf.Timestamp f_timestamp1 = 62 [ (defaults.field).repeated = {
+    items: [
+      { timestamp: { seconds: 200, nanos: 300 } },
+      { timestamp: { seconds: 0, nanos: 0 } },
+      { timestamp: { seconds: 202, nanos: 302 } },
+      { timestamp: {} },
+      {},
+      {}
+    ];
+  } ];
+
+  repeated MessageRepeated1 f_message1 = 71 [ (defaults.field).repeated = {
+    items: [ { message: { init: true } }, { message: { init: false } }, { message: { init: true } }, { message: {} }, {}, {} ];
+    skip_eval: false;
+    ignore_empty: false;
+  } ];
+
+  repeated MessageRepeated1.Embed1 f_message2 = 72 [ (defaults.field).repeated = {
+    items: [ { message: { init: true } }, { message: { init: false } }, { message: { init: true } }, { message: {} }, {}, {} ];
+    skip_eval: true;
+  } ];
+
+  repeated MessageRepeated1.Embed1.Embed2 f_message3 = 73 [ (defaults.field).repeated = {
+    items: [ { message: { init: true } }, { message: { init: false } }, { message: { init: true } }, { message: {} }, {}, {} ];
+    ignore_empty: false;
+  } ];
+
+  repeated external.External1 f_message4 = 74 [ (defaults.field).repeated = {
+    items: [ { message: { init: true } }, { message: { init: false } }, { message: { init: true } }, { message: {} }, {}, {} ];
+    skip_eval: true;
+  } ];
+
+  repeated external.External2.Embed1 f_message5 = 75 [ (defaults.field).repeated = {
+    items: [ { message: { init: true } }, { message: { init: false } }, { message: { init: true } }, { message: {} }, {}, {} ];
+    skip_eval: false;
+    ignore_empty: false;
+  } ];
+
+  repeated type_common.MessageCommon1 f_message6 = 76 [ (defaults.field).repeated = {
+    items: [ { message: { init: true } }, { message: { init: false } }, { message: { init: true } }, { message: {} }, {}, {} ];
+    ignore_empty: false;
+  } ];
+
+  repeated google.protobuf.Any f_any1 = 91 [ (defaults.field).repeated = {
+    items: [
+      { any: { type_url: ".MessageRepeated1" } },
+      { any: { type_url: "tests/proto/cases/types/type_repeated.MessageRepeated1.Embed1" } },
+      { any: { type_url: ".MessageRepeated1.Embed1.Embed2" } },
+      { any: { type_url: "tests/proto/module/external.External1" } },
+      { any: { type_url: "tests/proto/module/external.External2.Embed1" } },
+      { any: { type_url: "google/protobuf/timestamp.Timestamp" } },
+      { any: { type_url: "google/protobuf/any.Any" } },
+      { any: { type_url: "tests/proto/cases/types/type_common.MessageCommon1" } },
+      { any: {} },
+      {},
+      {}
+    ];
+  } ];
+}
+
+// Test cases for ignore_empty is true.
+message TypeRepeated2 {
+  repeated string f_string1 = 1 [ (defaults.field).repeated = {
+    items: [
+      {string: "ts1"}, { string: "" }, { string: '""' },
+      { string: '"ts4"' }, { string: '"ts5"' }, { string: '"ts\"6"' },
+      { string: '"ts"7"' }, { string: '[ts8]' }, { string: '{ts9}' },
+      {}, {}
+    ];
+    ignore_empty: true;
+  } ];
+
+  repeated int32 f_int32 = 11 [ (defaults.field).repeated = {
+    items: [ { int32: 11 }, { int32: 12 }, { int32: 13 }, {}, {} ];
+    ignore_empty: true;
+  } ];
+
+  repeated int64 f_int64 = 12 [ (defaults.field).repeated = {
+    items: [ { int64: 21 }, { int64: 22 }, { int64: 23 }, {}, {} ];
+    ignore_empty: true;
+  } ];
+
+  repeated uint32 f_uint32 = 13 [ (defaults.field).repeated = {
+    items: [ { uint32: 31 }, { uint32: 32 }, { uint32: 33 }, {}, {} ];
+    ignore_empty: true;
+  } ];
+
+  repeated uint64 f_uint64 = 14 [ (defaults.field).repeated = {
+    items: [ { uint64: 41 }, { uint64: 42 }, { uint64: 43 }, {}, {} ];
+    ignore_empty: true;
+  } ];
+
+  repeated sint32 f_sint32 = 15 [ (defaults.field).repeated = {
+    items: [ { sint32: 51 }, { sint32: 52 }, { sint32: 53 }, {}, {} ];
+    ignore_empty: true;
+  } ];
+
+  repeated sint64 f_sint64 = 16 [ (defaults.field).repeated = {
+    items: [ { sint64: 61 }, { sint64: 62 }, { sint64: 63 }, {}, {} ];
+    ignore_empty: true;
+  } ];
+
+  repeated sfixed32 f_sfixed32 = 17 [ (defaults.field).repeated = {
+    items: [ { sfixed32: 71 }, { sfixed32: 72 }, { sfixed32: 73 }, {}, {} ];
+    ignore_empty: true;
+  } ];
+
+  repeated sfixed64 f_sfixed64 = 18 [ (defaults.field).repeated = {
+    items: [ { sfixed64: 81 }, { sfixed64: 82 }, { sfixed64: 83 }, {}, {} ];
+    ignore_empty: true;
+  } ];
+
+  repeated fixed32 f_fixed32 = 19 [ (defaults.field).repeated = {
+    items: [ { fixed32: 91 }, { fixed32: 92 }, { fixed32: 93 }, {}, {} ];
+    ignore_empty: true;
+  } ];
+
+  repeated fixed64 f_fixed64 = 20 [ (defaults.field).repeated = {
+    items: [ { fixed64: 101 }, { fixed64: 102 }, { fixed64: 103 }, {}, {} ];
+    ignore_empty: true;
+  } ];
+
+  repeated float f_float = 21 [ (defaults.field).repeated = {
+    items: [ { float: 111.111 }, { float: 112.112 }, { float: 113.113 }, {}, {} ];
+    ignore_empty: true;
+  } ];
+
+  repeated double f_double = 22 [ (defaults.field).repeated = {
+    items: [ { double: 121.121 }, { double: 122.122 }, { double: 123.123 }, {}, {} ];
+    ignore_empty: true;
+  } ];
+
+  repeated bool f_bool1 = 31 [ (defaults.field).repeated = {
+    items: [ { bool: true }, { bool: false }, { bool: true }, {}, {} ];
+    ignore_empty: true;
+  } ];
+
+  repeated bytes f_bytes1 = 41 [ (defaults.field).repeated = {
+    items: [ { bytes: "abc" }, { bytes: "" }, { bytes: "123" }, {}, {} ];
+    ignore_empty: true;
+  } ];
+
+  repeated EnumRepeated1 f_enum1 = 51 [ (defaults.field).repeated = {
+    items: [ { enum: 1 }, { enum: 3 }, { enum: 5 }, {}, {} ];
+    ignore_empty: true;
+  } ];
+
+  repeated EnumRepeated1 f_enum2 = 52 [ (defaults.field).repeated = {
+    items: [ { enum: 2 }, { enum: 4 }, { enum: 6 }, {}, {} ];
+    ignore_empty: true;
+  } ];
+
+  repeated external.Month1 f_enum3 = 53 [ (defaults.field).repeated = {
+    items: [ { enum: 1 }, { enum: 3 }, { enum: 5 }, {}, {} ];
+    ignore_empty: true;
+  } ];
+
+  repeated external.Month2 f_enum4 = 54 [ (defaults.field).repeated = {
+    items: [ { enum: 2 }, { enum: 4 }, { enum: 6 }, {}, {} ];
+    ignore_empty: true;
+  } ];
+
+  repeated external.EnumWeek1.Week f_enum5 = 55 [ (defaults.field).repeated = {
+    items: [ { enum: 1 }, { enum: 3 }, { enum: 5 }, {}, {} ];
+    ignore_empty: true;
+  } ];
+
+  repeated external.EnumWeek2.Embed1.Week f_enum6 = 56 [ (defaults.field).repeated = {
+    items: [ { enum: 2 }, { enum: 4 }, { enum: 6 }, {}, {} ];
+    ignore_empty: true;
+  } ];
+  repeated type_common.EnumCommon1 f_enum7 = 57 [ (defaults.field).repeated = {
+    items: [ { enum: 2 }, { enum: 4 }, { enum: 6 }, {}, {} ];
+    ignore_empty: true;
+  } ];
+
+  repeated google.protobuf.Duration f_duration1 = 61 [ (defaults.field).repeated = {
+    items: [
+      { duration: { seconds: 100, nanos: 200 } },
+      { duration: { seconds: 0, nanos: 0 } },
+      { duration: { seconds: 102, nanos: 202 } },
+      { duration: {} },
+      {},
+      {}
+    ];
+    ignore_empty: true;
+  } ];
+
+  repeated google.protobuf.Timestamp f_timestamp1 = 62 [ (defaults.field).repeated = {
+    items: [
+      { timestamp: { seconds: 200, nanos: 300 } },
+      { timestamp: { seconds: 0, nanos: 0 } },
+      { timestamp: { seconds: 202, nanos: 302 } },
+      { timestamp: {} },
+      {},
+      {}
+    ];
+    ignore_empty: true;
+  } ];
+
+  repeated MessageRepeated1 f_message1 = 71 [ (defaults.field).repeated = {
+    items: [ { message: { init: true } }, { message: { init: false } }, { message: { init: true } }, { message: {} }, {}, {} ];
+    skip_eval: false;
+    ignore_empty: true;
+  } ];
+
+  repeated MessageRepeated1.Embed1 f_message2 = 72 [ (defaults.field).repeated = {
+    items: [ { message: { init: true } }, { message: { init: false } }, { message: { init: true } }, { message: {} }, {}, {} ];
+    skip_eval: true;
+    ignore_empty: true;
+  } ];
+
+  repeated MessageRepeated1.Embed1.Embed2 f_message3 = 73 [ (defaults.field).repeated = {
+    items: [ { message: { init: true } }, { message: { init: false } }, { message: { init: true } }, { message: {} }, {}, {} ];
+    ignore_empty: true;
+  } ];
+
+  repeated external.External1 f_message4 = 74 [ (defaults.field).repeated = {
+    items: [ { message: { init: true } }, { message: { init: false } }, { message: { init: true } }, { message: {} }, {}, {} ];
+    skip_eval: true;
+    ignore_empty: true;
+  } ];
+
+  repeated external.External2.Embed1 f_message5 = 75 [ (defaults.field).repeated = {
+    items: [ { message: { init: true } }, { message: { init: false } }, { message: { init: true } }, { message: {} }, {}, {} ];
+    ignore_empty: true;
+  } ];
+  repeated type_common.MessageCommon1 f_message6 = 76 [ (defaults.field).repeated = {
+    items: [ { message: { init: true } }, { message: { init: false } }, { message: { init: true } }, { message: {} }, {}, {} ];
+    skip_eval: false;
+    ignore_empty: true;
+  } ];
+
+  repeated google.protobuf.Any f_any1 = 91 [ (defaults.field).repeated = {
+    items: [
+      { any: { type_url: ".MessageRepeated1" } },
+      { any: { type_url: "tests/proto/cases/types/type_repeated.MessageRepeated1.Embed1" } },
+      { any: { type_url: ".MessageRepeated1.Embed1.Embed2" } },
+      { any: { type_url: "tests/proto/module/external.External1" } },
+      { any: { type_url: "tests/proto/module/external.External2.Embed1" } },
+      { any: { type_url: "google/protobuf/timestamp.Timestamp" } },
+      { any: { type_url: "google/protobuf/any.Any" } },
+      { any: { type_url: "tests/proto/cases/types/type_common.MessageCommon1" } },
+      { any: {} },
+      {},
+      {}
+    ];
+    ignore_empty: true;
+  } ];
+}
+

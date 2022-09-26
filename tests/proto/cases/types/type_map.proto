@@ -1,0 +1,770 @@
+syntax = "proto3";
+
+package type_map;
+
+option go_package = "xgo/tests/pb/pbtypes";
+
+import "google/protobuf/any.proto";
+import "google/protobuf/duration.proto";
+import "google/protobuf/timestamp.proto";
+
+import "tests/proto/module/external.proto";
+
+import "tests/proto/cases/types/type_common.proto";
+
+import "proto/defaults.proto";
+
+// EnumRepeated1 used tests cases in this file.
+enum EnumMap1 {
+  Zero  = 0;
+  One   = 2;
+  Two   = 3;
+  Three = 5;
+  Four  = 6;
+  Five  = 7;
+  Six   = 9;
+  Seven = 11;
+  Eight = 12;
+  Nine  = 15;
+  Ten   = 17;
+}
+
+// MessageRepeated1 used tests cases in this file.
+message MessageMap1 {
+  message Embed1 {
+    message Embed2 {
+      string f_string1 = 1 [ (defaults.field).plain = { value: { string: "1" } } ];
+      string f_string2 = 2 [ (defaults.field).plain = { value: { string: "2" } } ];
+      string f_string3 = 3 [ (defaults.field).plain = { value: { string: "3" } } ];
+    }
+    string f_string1 = 1 [ (defaults.field).plain = { value: { string: "x" } } ];
+    string f_string2 = 2 [ (defaults.field).plain = { value: { string: "y" } } ];
+    string f_string3 = 3 [ (defaults.field).plain = { value: { string: "z" } } ];
+  }
+  string f_string1 = 1 [ (defaults.field).plain = { value: { string: "a" } } ];
+  string f_string2 = 2 [ (defaults.field).plain = { value: { string: "b" } } ];
+  string f_string3 = 3 [ (defaults.field).plain = { value: { string: "c" } } ];
+}
+
+// Test case for ignore_empty is false.
+message TypeMap1 {
+  map<string, string> f_string1 = 1 [ (defaults.field).map = {
+    kvs: [
+      { key: { string: "ts1" }, value: { string: "ts1" } },
+      { },
+      { key: { string: '""' }, value: { string: '""' } },
+      { key: { string: '"ts4"' }, value: { string: '"ts4"' } },
+      { key: { string: '"ts5"' }, value: { string: '"ts5"' } },
+      { key: { string: '"ts\"6"' }, value: { string: '"ts\"6"' } },
+      { key: { string: '"ts"7"' }, value: { string: '"ts"7"' } },
+      { key: { string: '[ts8]' }, value: { string: '[ts8]' } },
+      { key: { string: '{ts9}' }, value: { string: '{ts9}' } },
+      { key: { string: "s10" }, value: { } }
+    ];
+  } ];
+
+  map<string, int32> f_int32 = 11 [ (defaults.field).map = {
+    kvs: [
+      { key: { string: "11" }, value: { int32: 11 } },
+      { key: { string: "12" }, value: { int32: 12 } },
+      { key: { string: "13" }, value: { } },
+      { key: { }, value: { } }
+    ];
+    ignore_empty: false;
+  } ];
+  map<string, int64> f_int64 = 12 [ (defaults.field).map = {
+    kvs: [
+      { key: { string: "21" }, value: { int64: 21 } },
+      { key: { string: "22" }, value: { int64: 22 } },
+      { key: { string: "23" }, value: { } },
+      { key: { }, value: { } }
+    ];
+  } ];
+  map<string, uint32> f_uint32 = 13 [ (defaults.field).map = {
+    kvs: [
+      { key: { string: "31" }, value: { uint32: 31 } },
+      { key: { string: "32" }, value: { uint32: 32 } },
+      { key: { string: "33" }, value: { } },
+      { key: { }, value: { } }
+    ];
+    ignore_empty: false;
+  } ];
+  map<string, uint64> f_uint64 = 14 [ (defaults.field).map = {
+    kvs: [
+      { key: { string: "41" }, value: { uint64: 41 } },
+      { key: { string: "42" }, value: { uint64: 42 } },
+      { key: { string: "43" }, value: { } },
+      { key: { }, value: { } }
+    ];
+  } ];
+  map<string, sint32> f_sint32 = 15 [ (defaults.field).map = {
+    kvs: [
+      { key: { string: "51" }, value: { sint32: 51 } },
+      { key: { string: "52" }, value: { sint32: 52 } },
+      { key: { string: "53" }, value: { } },
+      { key: { }, value: { } }
+    ];
+    ignore_empty: false;
+  } ];
+  map<string, sint64> f_sint64 = 16 [ (defaults.field).map = {
+    kvs: [
+      { key: { string: "61" }, value: { sint64: 61 } },
+      { key: { string: "62" }, value: { sint64: 62 } },
+      { key: { string: "63" }, value: { } },
+      { key: { }, value: { } }
+    ];
+  } ];
+  map<string, sfixed32> f_sfixed32 = 17 [ (defaults.field).map = {
+    kvs: [
+      { key: { string: "71" }, value: { sfixed32: 71 } },
+      { key: { string: "72" }, value: { sfixed32: 72 } },
+      { key: { string: "73" }, value: { } },
+      { key: { }, value: { } }
+    ];
+    ignore_empty: false;
+  } ];
+  map<string, sfixed64> f_sfixed64 = 18 [ (defaults.field).map = {
+    kvs: [
+      { key: { string: "81" }, value: { sfixed64: 81 } },
+      { key: { string: "82" }, value: { sfixed64: 82 } },
+      { key: { string: "83" }, value: { } },
+      { key: { }, value: { } }
+    ];
+  } ];
+  map<string, fixed32> f_fixed32 = 19 [ (defaults.field).map = {
+    kvs: [
+      { key: { string: "91" }, value: { fixed32: 91 } },
+      { key: { string: "92" }, value: { fixed32: 92 } },
+      { key: { string: "93" }, value: { } },
+      { key: { }, value: { } }
+    ];
+    ignore_empty: false;
+  } ];
+  map<string, fixed64> f_fixed64 = 20 [ (defaults.field).map = {
+    kvs: [
+      { key: { string: "101" }, value: { fixed64: 101 } },
+      { key: { string: "102" }, value: { fixed64: 102 } },
+      { key: { string: "103" }, value: { } },
+      { key: { }, value: { } }
+    ];
+  } ];
+  map<string, float> f_float = 21 [ (defaults.field).map = {
+    kvs: [
+      { key: { string: "111.111" }, value: { float: 111.111 } },
+      { key: { string: "112.112" }, value: { float: 112.112 } },
+      { key: { string: "113.113" }, value: { } },
+      { key: { }, value: { } }
+    ];
+    ignore_empty: false;
+  } ];
+  map<string, double> f_double = 22 [ (defaults.field).map = {
+    kvs: [
+      { key: { string: "121.121" }, value: { double: 121.121 } },
+      { key: { string: "122.122" }, value: { double: 122.122 } },
+      { key: { string: "123.123" }, value: { } },
+      { key: { }, value: { } }
+    ];
+  } ];
+
+  map<string, bool> f_bool1 = 31 [ (defaults.field).map = {
+    kvs: [
+      { key: { string: "t1" }, value: { bool: true } },
+      { key: { string: "t2" }, value: { bool: false } },
+      { key: { string: "t3" }, value: { } },
+      { key: { }, value: { } }
+    ];
+    ignore_empty: false;
+  } ];
+  map<string, bytes> f_bytes1 = 41 [ (defaults.field).map = {
+    kvs: [
+      { key: { string: "b1" }, value: { bytes: "abc" } },
+      { key: { string: "b2" }, value: { bytes: "123" } },
+      { key: { string: "b3" }, value: { } },
+      { key: { }, value: { } }
+    ];
+  } ];
+
+  map<string, EnumMap1> f_enum1 = 51 [ (defaults.field).map = {
+    kvs: [
+      { key: { string: "e1" }, value: { enum: 1 } },
+      { key: { string: "e2" }, value: { enum: 3 } },
+      { key: { string: "e3" }, value: { } },
+      { }
+    ];
+    ignore_empty: false;
+  } ];
+  map<string, EnumMap1> f_enum2 = 52 [ (defaults.field).map = {
+    kvs: [
+      { key: { string: "e1" }, value: { enum: 2 } },
+      { key: { string: "e2" }, value: { enum: 4 } },
+      { key: { string: "e3" }, value: { } },
+      { }
+    ];
+  } ];
+  map<string, external.Month1> f_enum3 = 53 [ (defaults.field).map = {
+    kvs: [
+      { key: { string: "e1" }, value: { enum: 1 } },
+      { key: { string: "e2" }, value: { enum: 3 } },
+      { key: { string: "e3" }, value: { } },
+      { }
+    ];
+    ignore_empty: false;
+  } ];
+  map<string, external.Month2> f_enum4 = 54 [ (defaults.field).map = {
+    kvs: [
+      { key: { string: "e1" }, value: { enum: 2 } },
+      { key: { string: "e2" }, value: { enum: 4 } },
+      { key: { string: "e3" }, value: { } },
+      { }
+    ];
+  } ];
+  map<string, external.EnumWeek1.Week> f_enum5 = 55 [ (defaults.field).map = {
+    kvs: [
+      { key: { string: "e1" }, value: { enum: 1 } },
+      { key: { string: "e2" }, value: { enum: 3 } },
+      { key: { string: "e3" }, value: { } },
+      { }
+    ];
+    ignore_empty: false;
+  } ];
+  map<string, external.EnumWeek2.Embed1.Week> f_enum6 = 56 [ (defaults.field).map = {
+    kvs: [
+      { key: { string: "e1" }, value: { enum: 2 } },
+      { key: { string: "e2" }, value: { enum: 4 } },
+      { key: { string: "e3" }, value: { } },
+      { }
+    ];
+  } ];
+  map<string, type_common.EnumCommon1> f_enum7 = 57 [ (defaults.field).map = {
+    kvs: [
+      { key: { string: "e1" }, value: { enum: 1 } },
+      { key: { string: "e2" }, value: { enum: 3 } },
+      { key: { string: "e3" }, value: { } },
+      { }
+    ];
+    ignore_empty: false;
+  } ];
+
+  map<string, google.protobuf.Duration> f_duration1 = 61 [ (defaults.field).map = {
+    kvs: [
+      { key: { string: "d1" }, value: { duration: { seconds: 100, nanos: 200 } } },
+      { key: { string: "d2" }, value: { duration: { seconds: 101, nanos: 201 } } },
+      { key: { string: "d3" }, value: { duration: { } } },
+      { key: { string: "d4" }, value: { } },
+      {}
+    ];
+    ignore_empty: false;
+  } ];
+
+  map<string, google.protobuf.Timestamp> f_timestamp1 = 62 [ (defaults.field).map = {
+    kvs: [
+      { key: { string: "t1" }, value: { timestamp: { seconds: 100, nanos: 200 } } },
+      { key: { string: "t2" }, value: { timestamp: { seconds: 101, nanos: 201 } } },
+      { key: { string: "t3" }, value: { timestamp: { } } },
+      { key: { string: "t4" }, value: { } },
+      {}
+    ];
+  } ];
+
+  map<string, MessageMap1> f_message1 = 71 [ (defaults.field).map = {
+    kvs: [
+      { key: { string: "m1" }, value: { message: { init: true } } },
+      { key: { string: "m2" }, value: { message: { init: false } } },
+      { key: { string: "m3" }, value: { message: { } } },
+      { key: { string: "m4" }, value: { } },
+      { }
+    ];
+    skip_eval: false;
+  } ];
+  map<string, MessageMap1.Embed1> f_message2 = 72 [ (defaults.field).map = {
+    kvs: [
+      { key: { string: "m1" }, value: { message: { init: true } } },
+      { key: { string: "m2" }, value: { message: { init: false } } },
+      { key: { string: "m3" }, value: { message: { } } },
+      { key: { string: "m4" }, value: { } },
+      { }
+    ];
+    skip_eval: true;
+    ignore_empty: false;
+  } ];
+  map<string, MessageMap1.Embed1.Embed2> f_message3 = 73 [ (defaults.field).map = {
+    kvs: [
+      { key: { string: "m1" }, value: { message: { init: true } } },
+      { key: { string: "m2" }, value: { message: { init: false } } },
+      { key: { string: "m3" }, value: { message: { } } },
+      { key: { string: "m4" }, value: { } },
+      { }
+    ];
+  } ];
+  map<string, external.External1> f_message4 = 74 [ (defaults.field).map = {
+    kvs: [
+      { key: { string: "m1" }, value: { message: { init: true } } },
+      { key: { string: "m2" }, value: { message: { init: false } } },
+      { key: { string: "m3" }, value: { message: { } } },
+      { key: { string: "m4" }, value: { } },
+      { }
+    ];
+    skip_eval: true;
+    ignore_empty: false;
+  } ];
+  map<string, external.External2.Embed1> f_message5 = 75 [ (defaults.field).map = {
+    kvs: [
+      { key: { string: "m1" }, value: { message: { init: true } } },
+      { key: { string: "m2" }, value: { message: { init: false } } },
+      { key: { string: "m3" }, value: { message: { } } },
+      { key: { string: "m4" }, value: { } },
+      { }
+    ];
+    skip_eval: false;
+  } ];
+  map<string, type_common.MessageCommon1> f_message6 = 76 [ (defaults.field).map = {
+    kvs: [
+      { key: { string: "m1" }, value: { message: { init: true } } },
+      { key: { string: "m2" }, value: { message: { init: false } } },
+      { key: { string: "m3" }, value: { message: { } } },
+      { key: { string: "m4" }, value: { } },
+      { }
+    ];
+    ignore_empty: false;
+  } ];
+
+  map<string, google.protobuf.Any> f_any1 = 91 [ (defaults.field).map = {
+    kvs: [
+      { key: { string: "a1" }, value: { any: { type_url: ".MessageMap1" } } },
+      { key: { string: "a2" }, value: { any: { type_url: "tests/proto/cases/types/type_map.MessageMap1.Embed1" } } },
+      { key: { string: "a3" }, value: { any: { type_url: ".MessageMap1.Embed1.Embed2" } } },
+      { key: { string: "a4" }, value: { any: { type_url: "tests/proto/module/external.External1" } } },
+      { key: { string: "a5" }, value: { any: { type_url: "tests/proto/module/external.External2.Embed1" } } },
+      { key: { string: "a6" }, value: { any: { type_url: "google/protobuf/timestamp.Timestamp" } } },
+      { key: { string: "a7" }, value: { any: { type_url: "google/protobuf/any.Any" } } },
+      { key: { string: "a8" }, value: { any: { type_url: "tests/proto/cases/types/type_common.MessageCommon1" } } },
+      {}
+    ];
+  } ];
+}
+
+// Test case for ignore_empty is true.
+message TypeMap2 {
+  map<string, string> f_string1 = 1 [ (defaults.field).map = {
+    kvs: [
+      { key: { string: "ts1" }, value: { string: "ts1" } },
+      { },
+      { key: { string: '""' }, value: { string: '""' } },
+      { key: { string: '"ts4"' }, value: { string: '"ts4"' } },
+      { key: { string: '"ts5"' }, value: { string: '"ts5"' } },
+      { key: { string: '"ts\"6"' }, value: { string: '"ts\"6"' } },
+      { key: { string: '"ts"7"' }, value: { string: '"ts"7"' } },
+      { key: { string: '[ts8]' }, value: { string: '[ts8]' } },
+      { key: { string: '{ts9}' }, value: { string: '{ts9}' } },
+      { key: { string: "s10" }, value: { } }
+    ];
+    ignore_empty: true;
+  } ];
+
+  map<string, int32> f_int32 = 11 [ (defaults.field).map = {
+    kvs: [
+      { key: { string: "11" }, value: { int32: 11 } },
+      { key: { string: "12" }, value: { int32: 12 } },
+      { key: { string: "13" }, value: { } },
+      { key: { }, value: { } }
+    ];
+    ignore_empty: true;
+  } ];
+  map<string, int64> f_int64 = 12 [ (defaults.field).map = {
+    kvs: [
+      { key: { string: "21" }, value: { int64: 21 } },
+      { key: { string: "22" }, value: { int64: 22 } },
+      { key: { string: "23" }, value: { } },
+      { key: { }, value: { } }
+    ];
+    ignore_empty: true;
+  } ];
+  map<string, uint32> f_uint32 = 13 [ (defaults.field).map = {
+    kvs: [
+      { key: { string: "31" }, value: { uint32: 31 } },
+      { key: { string: "32" }, value: { uint32: 32 } },
+      { key: { string: "33" }, value: { } },
+      { key: { }, value: { } }
+    ];
+    ignore_empty: true;
+  } ];
+  map<string, uint64> f_uint64 = 14 [ (defaults.field).map = {
+    kvs: [
+      { key: { string: "41" }, value: { uint64: 41 } },
+      { key: { string: "42" }, value: { uint64: 42 } },
+      { key: { string: "43" }, value: { } },
+      { key: { }, value: { } }
+    ];
+    ignore_empty: true;
+  } ];
+  map<string, sint32> f_sint32 = 15 [ (defaults.field).map = {
+    kvs: [
+      { key: { string: "51" }, value: { sint32: 51 } },
+      { key: { string: "52" }, value: { sint32: 52 } },
+      { key: { string: "53" }, value: { } },
+      { key: { }, value: { } }
+    ];
+    ignore_empty: true;
+  } ];
+  map<string, sint64> f_sint64 = 16 [ (defaults.field).map = {
+    kvs: [
+      { key: { string: "61" }, value: { sint64: 61 } },
+      { key: { string: "62" }, value: { sint64: 62 } },
+      { key: { string: "63" }, value: { } },
+      { key: { }, value: { } }
+    ];
+    ignore_empty: true;
+  } ];
+  map<string, sfixed32> f_sfixed32 = 17 [ (defaults.field).map = {
+    kvs: [
+      { key: { string: "71" }, value: { sfixed32: 71 } },
+      { key: { string: "72" }, value: { sfixed32: 72 } },
+      { key: { string: "73" }, value: { } },
+      { key: { }, value: { } }
+    ];
+    ignore_empty: true;
+  } ];
+  map<string, sfixed64> f_sfixed64 = 18 [ (defaults.field).map = {
+    kvs: [
+      { key: { string: "81" }, value: { sfixed64: 81 } },
+      { key: { string: "82" }, value: { sfixed64: 82 } },
+      { key: { string: "83" }, value: { } },
+      { key: { }, value: { } }
+    ];
+    ignore_empty: true;
+  } ];
+  map<string, fixed32> f_fixed32 = 19 [ (defaults.field).map = {
+    kvs: [
+      { key: { string: "91" }, value: { fixed32: 91 } },
+      { key: { string: "92" }, value: { fixed32: 92 } },
+      { key: { string: "93" }, value: { } },
+      { key: { }, value: { } }
+    ];
+    ignore_empty: true;
+  } ];
+  map<string, fixed64> f_fixed64 = 20 [ (defaults.field).map = {
+    kvs: [
+      { key: { string: "101" }, value: { fixed64: 101 } },
+      { key: { string: "102" }, value: { fixed64: 102 } },
+      { key: { string: "103" }, value: { } },
+      { key: { }, value: { } }
+    ];
+    ignore_empty: true;
+  } ];
+  map<string, float> f_float = 21 [ (defaults.field).map = {
+    kvs: [
+      { key: { string: "111.111" }, value: { float: 111.111 } },
+      { key: { string: "112.112" }, value: { float: 112.112 } },
+      { key: { string: "113.113" }, value: { } },
+      { key: { }, value: { } }
+    ];
+    ignore_empty: true;
+  } ];
+  map<string, double> f_double = 22 [ (defaults.field).map = {
+    kvs: [
+      { key: { string: "121.121" }, value: { double: 121.121 } },
+      { key: { string: "122.122" }, value: { double: 122.122 } },
+      { key: { string: "123.123" }, value: { } },
+      { key: { }, value: { } }
+    ];
+    ignore_empty: true;
+  } ];
+
+  map<string, bool> f_bool1 = 31 [ (defaults.field).map = {
+    kvs: [
+      { key: { string: "t1" }, value: { bool: true } },
+      { key: { string: "t2" }, value: { bool: false } },
+      { key: { string: "t3" }, value: { } },
+      { key: { }, value: { } }
+    ];
+    ignore_empty: true;
+  } ];
+  map<string, bytes> f_bytes1 = 41 [ (defaults.field).map = {
+    kvs: [
+      { key: { string: "b1" }, value: { bytes: "abc" } },
+      { key: { string: "b2" }, value: { bytes: "123" } },
+      { key: { string: "b3" }, value: { } },
+      { key: { }, value: { } }
+    ];
+    ignore_empty: true;
+  } ];
+
+  map<string, EnumMap1> f_enum1 = 51 [ (defaults.field).map = {
+    kvs: [
+      { key: { string: "e1" }, value: { enum: 1 } },
+      { key: { string: "e2" }, value: { enum: 3 } },
+      { key: { string: "e3" }, value: { } },
+      { }
+    ];
+    ignore_empty: true;
+  } ];
+  map<string, EnumMap1> f_enum2 = 52 [ (defaults.field).map = {
+    kvs: [
+      { key: { string: "e1" }, value: { enum: 2 } },
+      { key: { string: "e2" }, value: { enum: 4 } },
+      { key: { string: "e3" }, value: { } },
+      { }
+    ];
+    ignore_empty: true;
+  } ];
+  map<string, external.Month1> f_enum3 = 53 [ (defaults.field).map = {
+    kvs: [
+      { key: { string: "e1" }, value: { enum: 1 } },
+      { key: { string: "e2" }, value: { enum: 3 } },
+      { key: { string: "e3" }, value: { } },
+      { }
+    ];
+    ignore_empty: true;
+  } ];
+  map<string, external.Month2> f_enum4 = 54 [ (defaults.field).map = {
+    kvs: [
+      { key: { string: "e1" }, value: { enum: 2 } },
+      { key: { string: "e2" }, value: { enum: 4 } },
+      { key: { string: "e3" }, value: { } },
+      { }
+    ];
+    ignore_empty: true;
+  } ];
+  map<string, external.EnumWeek1.Week> f_enum5 = 55 [ (defaults.field).map = {
+    kvs: [
+      { key: { string: "e1" }, value: { enum: 1 } },
+      { key: { string: "e2" }, value: { enum: 3 } },
+      { key: { string: "e3" }, value: { } },
+      { }
+    ];
+    ignore_empty: true;
+  } ];
+  map<string, external.EnumWeek2.Embed1.Week> f_enum6 = 56 [ (defaults.field).map = {
+    kvs: [
+      { key: { string: "e1" }, value: { enum: 2 } },
+      { key: { string: "e2" }, value: { enum: 4 } },
+      { key: { string: "e3" }, value: { } },
+      { }
+    ];
+    ignore_empty: true;
+  } ];
+  map<string, type_common.EnumCommon1> f_enum7 = 57 [ (defaults.field).map = {
+    kvs: [
+      { key: { string: "e1" }, value: { enum: 1 } },
+      { key: { string: "e2" }, value: { enum: 3 } },
+      { key: { string: "e3" }, value: { } },
+      { }
+    ];
+    ignore_empty: true;
+  } ];
+
+  map<string, google.protobuf.Duration> f_duration1 = 61 [ (defaults.field).map = {
+    kvs: [
+      { key: { string: "d1" }, value: { duration: { seconds: 100, nanos: 200 } } },
+      { key: { string: "d2" }, value: { duration: { seconds: 101, nanos: 201 } } },
+      { key: { string: "d3" }, value: { duration: { } } },
+      { key: { string: "d4" }, value: { } },
+      {}
+    ];
+    ignore_empty: true;
+  } ];
+
+  map<string, google.protobuf.Timestamp> f_timestamp1 = 62 [ (defaults.field).map = {
+    kvs: [
+      { key: { string: "t1" }, value: { timestamp: { seconds: 100, nanos: 200 } } },
+      { key: { string: "t2" }, value: { timestamp: { seconds: 101, nanos: 201 } } },
+      { key: { string: "t3" }, value: { timestamp: { } } },
+      { key: { string: "t4" }, value: { } },
+      {}
+    ];
+    ignore_empty: true;
+  } ];
+
+  map<string, MessageMap1> f_message1 = 71 [ (defaults.field).map = {
+    kvs: [
+      { key: { string: "m1" }, value: { message: { init: true } } },
+      { key: { string: "m2" }, value: { message: { init: false } } },
+      { key: { string: "m3" }, value: { message: { } } },
+      { key: { string: "m4" }, value: { } },
+      { }
+    ];
+    skip_eval: false;
+    ignore_empty: true;
+  } ];
+  map<string, MessageMap1.Embed1> f_message2 = 72 [ (defaults.field).map = {
+    kvs: [
+      { key: { string: "m1" }, value: { message: { init: true } } },
+      { key: { string: "m2" }, value: { message: { init: false } } },
+      { key: { string: "m3" }, value: { message: { } } },
+      { key: { string: "m4" }, value: { } },
+      { }
+    ];
+    skip_eval: true;
+    ignore_empty: true;
+  } ];
+  map<string, MessageMap1.Embed1.Embed2> f_message3 = 73 [ (defaults.field).map = {
+    kvs: [
+      { key: { string: "m1" }, value: { message: { init: true } } },
+      { key: { string: "m2" }, value: { message: { init: false } } },
+      { key: { string: "m3" }, value: { message: { } } },
+      { key: { string: "m4" }, value: { } },
+      { }
+    ];
+    ignore_empty: true;
+  } ];
+  map<string, external.External1> f_message4 = 74 [ (defaults.field).map = {
+    kvs: [
+      { key: { string: "m1" }, value: { message: { init: true } } },
+      { key: { string: "m2" }, value: { message: { init: false } } },
+      { key: { string: "m3" }, value: { message: { } } },
+      { key: { string: "m4" }, value: { } },
+      { }
+    ];
+    skip_eval: true;
+    ignore_empty: true;
+  } ];
+  map<string, external.External2.Embed1> f_message5 = 75 [ (defaults.field).map = {
+    kvs: [
+      { key: { string: "m1" }, value: { message: { init: true } } },
+      { key: { string: "m2" }, value: { message: { init: false } } },
+      { key: { string: "m3" }, value: { message: { } } },
+      { key: { string: "m4" }, value: { } },
+      { }
+    ];
+    skip_eval: false;
+    ignore_empty: true;
+  } ];
+  map<string, type_common.MessageCommon1> f_message6 = 76 [ (defaults.field).map = {
+    kvs: [
+      { key: { string: "m1" }, value: { message: { init: true } } },
+      { key: { string: "m2" }, value: { message: { init: false } } },
+      { key: { string: "m3" }, value: { message: { } } },
+      { key: { string: "m4" }, value: { } },
+      { }
+    ];
+    ignore_empty: true;
+  } ];
+
+  map<string, google.protobuf.Any> f_any1 = 91 [ (defaults.field).map = {
+    kvs: [
+      { key: { string: "a1" }, value: { any: { type_url: ".MessageMap1" } } },
+      { key: { string: "a2" }, value: { any: { type_url: "tests/proto/cases/types/type_map.MessageMap1.Embed1" } } },
+      { key: { string: "a3" }, value: { any: { type_url: ".MessageMap1.Embed1.Embed2" } } },
+      { key: { string: "a4" }, value: { any: { type_url: "tests/proto/module/external.External1" } } },
+      { key: { string: "a5" }, value: { any: { type_url: "tests/proto/module/external.External2.Embed1" } } },
+      { key: { string: "a6" }, value: { any: { type_url: "google/protobuf/timestamp.Timestamp" } } },
+      { key: { string: "a7" }, value: { any: { type_url: "google/protobuf/any.Any" } } },
+      { key: { string: "a8" }, value: { any: { type_url: "tests/proto/cases/types/type_common.MessageCommon1" } } },
+      {}
+    ];
+    ignore_empty: true;
+  } ];
+}
+
+// Test case for multiple type of key.
+message TypeMap3 {
+  map<string, string> f_string1 = 1 [ (defaults.field).map = {
+    kvs: [
+      { key: { string: "s1" }, value: { string: "v1" } },
+      { key: { string: "s2" }, value: { string: "v2" } },
+      { key: { string: "s3" }, value: { string: "" } },
+      { }
+    ];
+    ignore_empty: true;
+  } ];
+
+  map<int32, int32> f_int32 = 11 [ (defaults.field).map = {
+    kvs: [
+      { key: { int32: 11 }, value: { int32: 11 } },
+      { key: { int32: 12 }, value: { int32: 12 } },
+      { key: { int32: 13 }, value: { } },
+      { key: { }, value: { } }
+    ];
+    ignore_empty: false;
+  } ];
+  map<int64, int64> f_int64 = 12 [ (defaults.field).map = {
+    kvs: [
+      { key: { int64: 21 }, value: { int64: 21 } },
+      { key: { int64: 22 }, value: { int64: 22 } },
+      { key: { int64: 23 }, value: { } },
+      { key: { }, value: { } }
+    ];
+    ignore_empty: true;
+  } ];
+  map<uint32, uint32> f_uint32 = 13 [ (defaults.field).map = {
+    kvs: [
+      { key: { uint32: 31 }, value: { uint32: 31 } },
+      { key: { uint32: 32 }, value: { uint32: 32 } },
+      { key: { uint32: 33 }, value: { } },
+      { key: { }, value: { } }
+    ];
+    ignore_empty: false;
+  } ];
+  map<uint64, uint64> f_uint64 = 14 [ (defaults.field).map = {
+    kvs: [
+      { key: { uint64: 41 }, value: { uint64: 41 } },
+      { key: { uint64: 42 }, value: { uint64: 42 } },
+      { key: { uint64: 43 }, value: { } },
+      { key: { }, value: { } }
+    ];
+    ignore_empty: true;
+  } ];
+  map<sint32, sint32> f_sint32 = 15 [ (defaults.field).map = {
+    kvs: [
+      { key: { sint32: 51 }, value: { sint32: 51 } },
+      { key: { sint32: 52 }, value: { sint32: 52 } },
+      { key: { sint32: 53 }, value: { } },
+      { key: { }, value: { } }
+    ];
+    ignore_empty: false;
+  } ];
+  map<sint64, sint64> f_sint64 = 16 [ (defaults.field).map = {
+    kvs: [
+      { key: { sint64: 61 }, value: { sint64: 61 } },
+      { key: { sint64: 62 }, value: { sint64: 62 } },
+      { key: { sint64: 63 }, value: { } },
+      { key: { }, value: { } }
+    ];
+    ignore_empty: true;
+  } ];
+  map<sfixed32, sfixed32> f_sfixed32 = 17 [ (defaults.field).map = {
+    kvs: [
+      { key: { sfixed32: 71 }, value: { sfixed32: 71 } },
+      { key: { sfixed32: 72 }, value: { sfixed32: 72 } },
+      { key: { sfixed32: 73 }, value: { } },
+      { key: { }, value: { } }
+    ];
+    ignore_empty: false;
+  } ];
+  map<sfixed64, sfixed64> f_sfixed64 = 18 [ (defaults.field).map = {
+    kvs: [
+      { key: { sfixed64: 81 }, value: { sfixed64: 81 } },
+      { key: { sfixed64: 82 }, value: { sfixed64: 82 } },
+      { key: { sfixed64: 83 }, value: { } },
+      { key: { }, value: { } }
+    ];
+    ignore_empty: true;
+  } ];
+  map<fixed32, fixed32> f_fixed32 = 19 [ (defaults.field).map = {
+    kvs: [
+      { key: { fixed32: 91 }, value: { fixed32: 91 } },
+      { key: { fixed32: 92 }, value: { fixed32: 92 } },
+      { key: { fixed32: 93 }, value: { } },
+      { key: { }, value: { } }
+    ];
+    ignore_empty: false;
+  } ];
+  map<fixed64, fixed64> f_fixed64 = 20 [ (defaults.field).map = {
+    kvs: [
+      { key: { fixed64: 101 }, value: { fixed64: 101 } },
+      { key: { fixed64: 102 }, value: { fixed64: 102 } },
+      { key: { fixed64: 103 }, value: { } },
+      { key: { }, value: { } }
+    ];
+    ignore_empty: true;
+  } ];
+  map<bool, bool> f_bool1 = 31 [ (defaults.field).map = {
+    kvs: [
+      { key: { bool: true }, value: { bool: true } },
+      { key: { }, value: { } }
+    ];
+    ignore_empty: false;
+  } ];
+}
+
+

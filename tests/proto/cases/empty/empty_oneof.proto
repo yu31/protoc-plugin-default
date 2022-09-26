@@ -1,0 +1,189 @@
+syntax = "proto3";
+
+package empty_oneof;
+
+option go_package = "xgo/tests/pb/pbempty";
+
+import "google/protobuf/any.proto";
+import "google/protobuf/duration.proto";
+import "google/protobuf/timestamp.proto";
+
+import "tests/proto/module/external.proto";
+
+import "tests/proto/cases/empty/empty_common.proto";
+
+import "proto/defaults.proto";
+
+// EnumOneOf1 used tests cases in this file.
+enum EnumOneOf1 {
+  Zero  = 0;
+  One   = 2;
+  Two   = 3;
+  Three = 5;
+  Four  = 6;
+  Five  = 7;
+  Six   = 9;
+  Seven = 11;
+  Eight = 12;
+  Nine  = 15;
+  Ten   = 17;
+}
+
+// MessageOneOf1 used tests cases in this file.
+message MessageOneOf1 {
+  message Embed1 {
+    message Embed2 {
+      string f_string1 = 1 [ (defaults.field).plain = { value: { } } ];
+      string f_string2 = 2 [ (defaults.field).plain = { } ];
+      string f_string3 = 3 [ (defaults.field) = { } ];
+      string f_string4 = 4;
+    }
+    string f_string1 = 1 [ (defaults.field).plain = { value: { } } ];
+    string f_string2 = 2 [ (defaults.field).plain = { } ];
+    string f_string3 = 3 [ (defaults.field) = { } ];
+    string f_string4 = 4;
+  }
+  string f_string1 = 1 [ (defaults.field).plain = { value: { } } ];
+  string f_string2 = 2 [ (defaults.field).plain = { } ];
+  string f_string3 = 3 [ (defaults.field) = { } ];
+  string f_string4 = 4;
+}
+
+// Test case for field in `oneof` parts.
+message TypeOneOf1 {
+  oneof OneType1 {
+    string f_string1 = 1 [ (defaults.field).plain = { value: { } } ];
+    string f_string2 = 2 [ (defaults.field).plain = { } ];
+    string f_string3 = 3 [ (defaults.field) = { } ];
+    string f_string4 = 4 ;
+    string f_string5 = 5 [ (defaults.field).plain = { value: { } } ];
+    string f_string6 = 6 [ (defaults.field).plain = { } ];
+    string f_string7 = 7 [ (defaults.field) = { } ];
+    string f_string8 = 8 ;
+    string f_string9 = 9 [ (defaults.field).plain = { value: { } } ];
+
+    int32    f_int32    = 11 [ (defaults.field).plain = { value: { } } ];
+    int64    f_int64    = 12 [ (defaults.field).plain = { } ];
+    uint32   f_uint32   = 13 [ (defaults.field) = { } ];
+    uint64   f_uint64   = 14 ;
+    sint32   f_sint32   = 15 [ (defaults.field).plain = { value: { } } ];
+    sint64   f_sint64   = 16 [ (defaults.field).plain = { } ];
+    sfixed32 f_sfixed32 = 17 [ (defaults.field) = { } ];
+    sfixed64 f_sfixed64 = 18;
+    fixed32  f_fixed32  = 19 [ (defaults.field).plain = { } ];
+    fixed64  f_fixed64  = 20 [ (defaults.field) = { } ];
+    float    f_float    = 21 ;
+    double   f_double   = 22 [ (defaults.field).plain = { value: { } } ];
+
+    bool f_bool1 = 31 [ (defaults.field).plain = { value: { } } ];
+    bool f_bool2 = 32 [ (defaults.field).plain = { } ];
+
+    bytes f_bytes1 = 41 [ (defaults.field).plain = { value: { } } ];
+    bytes f_bytes2 = 42 ;
+
+    MessageOneOf1                  f_enum1 = 51 [ (defaults.field).plain = { value: { } } ];
+    MessageOneOf1                  f_enum2 = 52 [ (defaults.field).plain = { } ];
+    external.Month1                f_enum3 = 53 [ (defaults.field) = { } ];
+    external.Month2                f_enum4 = 54 ;
+    external.EnumWeek1.Week        f_enum5 = 55 [ (defaults.field).plain = { value: { } } ];
+    external.EnumWeek2.Embed1.Week f_enum6 = 56 [ (defaults.field).plain = { value: { } } ];
+    type_common.EnumCommon1        f_enum7 = 57 [ (defaults.field).plain = { value: { } } ];
+
+    google.protobuf.Duration f_duration1 = 61 [ (defaults.field).plain = { value: { } } ];
+    google.protobuf.Duration f_duration2 = 62 [ (defaults.field).plain = { } ];
+
+    google.protobuf.Timestamp f_timestamp1 = 63 [ (defaults.field).plain = { value: { } } ];
+    google.protobuf.Timestamp f_timestamp2 = 64 [ (defaults.field) = { } ];
+
+    MessageOneOf1                            f_message11 = 71 [ (defaults.field).plain = { value: { } } ];
+    MessageOneOf1.Embed1                     f_message12 = 72 [ (defaults.field).plain = { } ];
+    MessageOneOf1.Embed1.Embed2              f_message13 = 73 [ (defaults.field) = { } ];
+    external.External1                       f_message14 = 74 ;
+    external.External2.Embed1                f_message15 = 75 [ (defaults.field).plain = { value: { } } ];
+    type_common.MessageCommon1               f_message16 = 76 [ (defaults.field).plain = { value: { } } ];
+    type_common.MessageCommon1.Embed1        f_message17 = 77 [ (defaults.field).plain = { } ];
+    type_common.MessageCommon1.Embed1.Embed2 f_message18 = 78 [ (defaults.field) = { } ];
+
+    MessageOneOf1                            f_message21 = 81 [ (defaults.field).plain = { value: { } } ];
+    MessageOneOf1.Embed1                     f_message22 = 82 ;
+    MessageOneOf1.Embed1.Embed2              f_message23 = 83 [ (defaults.field).plain = { value: { } } ];
+    external.External1                       f_message24 = 84 [ (defaults.field) = { } ];
+    external.External2.Embed1                f_message25 = 85 [ (defaults.field).plain = { value: { } } ];
+    type_common.MessageCommon1               f_message26 = 86 [ (defaults.field).plain = { } ];
+    type_common.MessageCommon1.Embed1        f_message27 = 87 [ (defaults.field).plain = { value: { } } ];
+    type_common.MessageCommon1.Embed1.Embed2 f_message28 = 88 [ (defaults.field).plain = { value: { } } ];
+
+    google.protobuf.Any f_any1 = 101 [ (defaults.field).plain = { value: { } } ];
+    google.protobuf.Any f_any2 = 102 [ (defaults.field).plain = { } ];
+    google.protobuf.Any f_any3 = 103 [ (defaults.field) = { } ];
+    google.protobuf.Any f_any4 = 104 ;
+    google.protobuf.Any f_any5 = 105 [ (defaults.field).plain = { value: { } } ];
+    google.protobuf.Any f_any6 = 106 [ (defaults.field).plain = { value: { } } ];
+    google.protobuf.Any f_any7 = 107 [ (defaults.field).plain = { value: { } } ];
+    google.protobuf.Any f_any8 = 108 [ (defaults.field).plain = { value: { } } ];
+    google.protobuf.Any f_any9 = 109 [ (defaults.field).plain = { value: { } } ];
+  }
+}
+
+// Test case for oneof filed.
+message TypeOneOf2 {
+  oneof OneStr1 {
+    option (defaults.oneof) = { };
+
+    string f_string1 = 1 [ (defaults.field).plain = { value: { } } ];
+    string f_string2 = 2 [ (defaults.field).plain = { } ];
+  }
+
+  oneof OneStr2 {
+
+    string f_string3 = 3 [ (defaults.field) = { } ];
+    string f_string4 = 4;
+  }
+
+  oneof OneMsg1 {
+    option (defaults.oneof) = { };
+
+    MessageOneOf1               f_message11 = 11 [ (defaults.field).plain = { value: { } } ];
+    MessageOneOf1.Embed1        f_message12 = 12 [ (defaults.field).plain = { } ];
+    MessageOneOf1.Embed1.Embed2 f_message13 = 13 [ (defaults.field) = { } ];
+    external.External1          f_message14 = 14 ;
+    external.External2.Embed1   f_message15 = 15 [ (defaults.field).plain = { value: { } } ];
+  }
+
+  oneof OneMsg2 {
+
+    MessageOneOf1               f_message21 = 21 [ (defaults.field).plain = { value: { } } ];
+    MessageOneOf1.Embed1        f_message22 = 22 [ (defaults.field).plain = { } ];
+    MessageOneOf1.Embed1.Embed2 f_message23 = 23 [ (defaults.field) = { } ];
+    external.External1          f_message24 = 24 ;
+    external.External2.Embed1   f_message25 = 25 [ (defaults.field).plain = { value: { } } ];
+  }
+
+  oneof OneMsg3 {
+    option (defaults.oneof) = { };
+
+    MessageOneOf1               f_message31 = 31 [ (defaults.field).plain = { value: { } } ];
+    MessageOneOf1.Embed1        f_message32 = 32 [ (defaults.field).plain = { } ];
+    MessageOneOf1.Embed1.Embed2 f_message33 = 33 [ (defaults.field) = { } ];
+    external.External1          f_message34 = 34 ;
+    external.External2.Embed1   f_message35 = 35 [ (defaults.field).plain = { value: { } } ];
+  }
+
+  oneof OneMsg4 {
+    MessageOneOf1               f_message41 = 41 [ (defaults.field).plain = { value: { } } ];
+    MessageOneOf1.Embed1        f_message42 = 42 [ (defaults.field).plain = { } ];
+    MessageOneOf1.Embed1.Embed2 f_message43 = 43 [ (defaults.field) = { } ];
+    external.External1          f_message44 = 44 ;
+    external.External2.Embed1   f_message45 = 45 [ (defaults.field).plain = { value: { } } ];
+  }
+
+  oneof OneMsg5 {
+    option (defaults.oneof) = { };
+
+    MessageOneOf1               f_message51 = 51 [ (defaults.field).plain = { value: { } } ];
+    MessageOneOf1.Embed1        f_message52 = 52 [ (defaults.field).plain = { } ];
+    MessageOneOf1.Embed1.Embed2 f_message53 = 53 [ (defaults.field) = { } ];
+    external.External1          f_message54 = 54 ;
+    external.External2.Embed1   f_message55 = 55 [ (defaults.field).plain = { value: { } } ];
+  }
+}

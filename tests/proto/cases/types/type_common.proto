@@ -1,0 +1,40 @@
+syntax = "proto3";
+
+package type_common;
+
+option go_package = "xgo/tests/pb/pbtypes";
+
+import "proto/defaults.proto";
+
+// EnumCommon1 used tests cases in this file.
+enum EnumCommon1 {
+  Zero  = 0;
+  One   = 2;
+  Two   = 3;
+  Three = 5;
+  Four  = 6;
+  Five  = 7;
+  Six   = 9;
+  Seven = 11;
+  Eight = 12;
+  Nine  = 15;
+  Ten   = 17;
+}
+
+// MessageCommon1 used tests cases in this file.
+message MessageCommon1 {
+  message Embed1 {
+    message Embed2 {
+      string f_string1 = 1 [ (defaults.field).plain = { value: { string: "1" } } ];
+      string f_string2 = 2 [ (defaults.field).plain = { value: { string: "2" } } ];
+      string f_string3 = 3 [ (defaults.field).plain = { value: { string: "3" } } ];
+    }
+    string f_string1 = 1 [ (defaults.field).plain = { value: { string: "x" } } ];
+    string f_string2 = 2 [ (defaults.field).plain = { value: { string: "y" } } ];
+    string f_string3 = 3 [ (defaults.field).plain = { value: { string: "z" } } ];
+  }
+  string f_string1 = 1 [ (defaults.field).plain = { value: { string: "a" } } ];
+  string f_string2 = 2 [ (defaults.field).plain = { value: { string: "b" } } ];
+  string f_string3 = 3 [ (defaults.field).plain = { value: { string: "c" } } ];
+}
+
