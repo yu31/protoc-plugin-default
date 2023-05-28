@@ -69,7 +69,7 @@ generate-test: compile
 
 .PHONY: test
 test: ## Run the test cases that in ./xgo/tests/cases
-test: generate-test check
+test: generate-test tidy format vet
 	@[[ ${VERBOSE} = "yes" ]] && bash -x scripts/run_test_go.sh "${CASE}" "${DIR}" || bash scripts/run_test_go.sh "${CASE}" "${DIR}"
 	@#[[ ${VERBOSE} = "yes" ]] && set -x; go test -v -test.count=1 -failfast -test.run="${CASE}" ./xgo/tests/cases/...;
 

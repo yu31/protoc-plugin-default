@@ -8,14 +8,14 @@ import (
 	"google.golang.org/protobuf/types/known/durationpb"
 	"google.golang.org/protobuf/types/known/timestamppb"
 
-	"github.com/yu31/protoc-plugin-defaults/xgo/tests/pb/pbexternal"
-	"github.com/yu31/protoc-plugin-defaults/xgo/tests/pb/pbtypes"
+	"github.com/yu31/protoc-plugin-default/xgo/tests/pb/pbexternal"
+	"github.com/yu31/protoc-plugin-default/xgo/tests/pb/pbtypes"
 )
 
 // Test cases the field value is nil pointer.
 func Test_TypePlain1_NIL(t *testing.T) {
 	data := &pbtypes.TypePlain1{}
-	data.SetDefaults()
+	data.SetDefault()
 
 	t.Run("STRING", func(t *testing.T) {
 		require.Equal(t, "ts1", data.FString1)
@@ -245,7 +245,7 @@ func Test_TypePlain1_Empty(t *testing.T) {
 		FAny8:       &anypb.Any{},
 		FAny9:       &anypb.Any{},
 	}
-	data.SetDefaults()
+	data.SetDefault()
 
 	t.Run("BYTES", func(t *testing.T) {
 		require.Equal(t, []byte(""), data.FBytes1)
@@ -493,7 +493,7 @@ func Test_TypePlain1_Ignore(t *testing.T) {
 		FAny9:       mustNewAny(&pbexternal.External3{TString: "any9"}),
 	}
 
-	data.SetDefaults()
+	data.SetDefault()
 
 	t.Run("STRING", func(t *testing.T) {
 		require.Equal(t, "101", data.FString1)

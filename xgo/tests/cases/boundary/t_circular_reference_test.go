@@ -4,7 +4,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/yu31/protoc-plugin-defaults/xgo/tests/pb/boundary/pbcr"
+	"github.com/yu31/protoc-plugin-default/xgo/tests/pb/pbcr"
 )
 
 func Test_CRMessageA1(t *testing.T) {
@@ -30,7 +30,7 @@ func Test_CRMessageA1(t *testing.T) {
 	defer timer.Stop()
 
 	go func() {
-		msgA.SetDefaults()
+		msgA.SetDefault()
 		close(done)
 	}()
 

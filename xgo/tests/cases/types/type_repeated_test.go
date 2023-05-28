@@ -8,14 +8,14 @@ import (
 	"google.golang.org/protobuf/types/known/durationpb"
 	"google.golang.org/protobuf/types/known/timestamppb"
 
-	"github.com/yu31/protoc-plugin-defaults/xgo/tests/pb/pbexternal"
-	"github.com/yu31/protoc-plugin-defaults/xgo/tests/pb/pbtypes"
+	"github.com/yu31/protoc-plugin-default/xgo/tests/pb/pbexternal"
+	"github.com/yu31/protoc-plugin-default/xgo/tests/pb/pbtypes"
 )
 
 // Test cases the field value is nil pointer.
 func Test_TypeRepeated1_NIL(t *testing.T) {
 	data := pbtypes.TypeRepeated1{}
-	data.SetDefaults()
+	data.SetDefault()
 
 	t.Run("STRING", func(t *testing.T) {
 		require.Equal(t, 11, len(data.FString1))
@@ -430,7 +430,7 @@ func Test_TypeRepeated1_Empty(t *testing.T) {
 		FMessage6:   []*pbtypes.MessageCommon1{},
 		FAny1:       []*anypb.Any{},
 	}
-	data.SetDefaults()
+	data.SetDefault()
 
 	t.Run("STRING", func(t *testing.T) {
 		require.Equal(t, 11, len(data.FString1))
@@ -845,7 +845,7 @@ func Test_TypeRepeated1_Ignore(t *testing.T) {
 		FMessage6:   []*pbtypes.MessageCommon1{{FString1: "1601", FString2: "1602", FString3: "1603"}},
 		FAny1:       []*anypb.Any{mustNewAny(&pbexternal.External3{TString: "any1"})},
 	}
-	data.SetDefaults()
+	data.SetDefault()
 
 	t.Run("STRING", func(t *testing.T) {
 		require.Equal(t, 1, len(data.FString1))
@@ -991,7 +991,7 @@ func Test_TypeRepeated1_Ignore(t *testing.T) {
 // Test cases the field value is nil pointer.
 func Test_TypeRepeated2_NIL(t *testing.T) {
 	data := pbtypes.TypeRepeated2{}
-	data.SetDefaults()
+	data.SetDefault()
 
 	t.Run("STRING", func(t *testing.T) {
 		require.Equal(t, 11, len(data.FString1))
@@ -1406,7 +1406,7 @@ func Test_TypeRepeated2_Empty(t *testing.T) {
 		FMessage6:   []*pbtypes.MessageCommon1{},
 		FAny1:       []*anypb.Any{},
 	}
-	data.SetDefaults()
+	data.SetDefault()
 
 	t.Run("STRING", func(t *testing.T) {
 		require.Equal(t, 0, len(data.FString1))
@@ -1560,7 +1560,7 @@ func Test_TypeRepeated2_Ignore(t *testing.T) {
 		FMessage6:   []*pbtypes.MessageCommon1{{FString1: "1601", FString2: "1602", FString3: "1603"}},
 		FAny1:       []*anypb.Any{mustNewAny(&pbexternal.External3{TString: "any1"})},
 	}
-	data.SetDefaults()
+	data.SetDefault()
 
 	t.Run("STRING", func(t *testing.T) {
 		require.Equal(t, 1, len(data.FString1))

@@ -10,8 +10,8 @@ option go_package = "xgo/tests/pb/pbinvalid";
 //
 //import "tests/proto/module/external.proto";
 
-import "proto/defaults.proto";
+import "proto/default.proto";
 
 message Map03 {
-  map<string, string> field03 = 3 [ (defaults.field).plain = { value: { int64: 0 } } ];
+  map<string, string> field03 = 3 [ (default.field).plain = { value: { int64: 0 } } ];
 }

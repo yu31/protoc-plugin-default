@@ -10,8 +10,8 @@ option go_package = "xgo/tests/pb/pbinvalid";
 //
 //import "tests/proto/module/external.proto";
 
-import "proto/defaults.proto";
+import "proto/default.proto";
 
 message Double11 {
-  double field11 = 11 [ (defaults.field).plain = { value: { fixed64: 0 } } ];
+  double field11 = 11 [ (default.field).plain = { value: { fixed64: 0 } } ];
 }

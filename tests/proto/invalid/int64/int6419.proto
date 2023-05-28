@@ -10,8 +10,8 @@ option go_package = "xgo/tests/pb/pbinvalid";
 //
 //import "tests/proto/module/external.proto";
 
-import "proto/defaults.proto";
+import "proto/default.proto";
 
 message Int6419 {
-  int64 field19 = 19 [ (defaults.field).plain = { value: { duration: { seconds: 1, nanos: 1 } } } ];
+  int64 field19 = 19 [ (default.field).plain = { value: { duration: { seconds: 1, nanos: 1 } } } ];
 }

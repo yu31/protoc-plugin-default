@@ -10,8 +10,8 @@ option go_package = "xgo/tests/pb/pbinvalid";
 //
 //import "tests/proto/module/external.proto";
 
-import "proto/defaults.proto";
+import "proto/default.proto";
 
 message SInt6407 {
-  sint64 field07 = 7 [ (defaults.field).plain = { value: { sfixed64: 0 } } ];
+  sint64 field07 = 7 [ (default.field).plain = { value: { sfixed64: 0 } } ];
 }

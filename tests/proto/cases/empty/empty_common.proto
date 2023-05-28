@@ -4,7 +4,7 @@ package type_common;
 
 option go_package = "xgo/tests/pb/pbempty";
 
-import "proto/defaults.proto";
+import "proto/default.proto";
 
 // EnumCommon1 used tests cases in this file.
 enum EnumCommon1 {
@@ -25,19 +25,19 @@ enum EnumCommon1 {
 message MessageCommon1 {
   message Embed1 {
     message Embed2 {
-      string f_string1 = 1 [ (defaults.field).plain = { value: { } } ];
-      string f_string2 = 2 [ (defaults.field).plain = { } ];
-      string f_string3 = 3 [ (defaults.field) = { } ];
+      string f_string1 = 1 [ (default.field).plain = { value: { } } ];
+      string f_string2 = 2 [ (default.field).plain = { } ];
+      string f_string3 = 3 [ (default.field) = { } ];
       string f_string4 = 4;
     }
-    string f_string1 = 1 [ (defaults.field).plain = { value: { } } ];
-    string f_string2 = 2 [ (defaults.field).plain = { } ];
-    string f_string3 = 3 [ (defaults.field) = { } ];
+    string f_string1 = 1 [ (default.field).plain = { value: { } } ];
+    string f_string2 = 2 [ (default.field).plain = { } ];
+    string f_string3 = 3 [ (default.field) = { } ];
     string f_string4 = 4;
   }
-  string f_string1 = 1 [ (defaults.field).plain = { value: { } } ];
-  string f_string2 = 2 [ (defaults.field).plain = { } ];
-  string f_string3 = 3 [ (defaults.field) = { } ];
+  string f_string1 = 1 [ (default.field).plain = { value: { } } ];
+  string f_string2 = 2 [ (default.field).plain = { } ];
+  string f_string3 = 3 [ (default.field) = { } ];
   string f_string4 = 4;
 }
 

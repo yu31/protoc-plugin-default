@@ -10,8 +10,8 @@ option go_package = "xgo/tests/pb/pbinvalid";
 //
 //import "tests/proto/module/external.proto";
 
-import "proto/defaults.proto";
+import "proto/default.proto";
 
 message UInt3207 {
-  uint32 field07 = 7 [ (defaults.field).plain = { value: { sfixed64: 0 } } ];
+  uint32 field07 = 7 [ (default.field).plain = { value: { sfixed64: 0 } } ];
 }

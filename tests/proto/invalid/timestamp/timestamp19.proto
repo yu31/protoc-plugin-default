@@ -10,8 +10,8 @@ import "google/protobuf/timestamp.proto";
 //
 //import "tests/proto/module/external.proto";
 
-import "proto/defaults.proto";
+import "proto/default.proto";
 
 message Timestamp19 {
-  google.protobuf.Timestamp field19 = 19 [ (defaults.field).plain = { value: { duration: { seconds: 1, nanos: 1 } } } ];
+  google.protobuf.Timestamp field19 = 19 [ (default.field).plain = { value: { duration: { seconds: 1, nanos: 1 } } } ];
 }

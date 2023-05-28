@@ -1,1 +1,1 @@
-# protoc-plugin-defaults
+# protoc-plugin-default

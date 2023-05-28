@@ -5,11 +5,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>io.github.yu31</groupId>
-    <artifactId>protoc-plugin</artifactId>
+    <artifactId>protoc-plugin-default</artifactId>
     <version>0.0.2</version>
-    <url>https://github.com/yu31/protoc-plugin</url>
-    <name>protoc-plugin</name>
-    <description>A protobuf plugins in collection for implements utils includes "validator", "defaults" and "json"</description>
+    <url>https://github.com/yu31/protoc-plugin-default</url>
+    <name>protoc-plugin-default</name>
+    <description>The protobuf plugin to generated code for set default value</description>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
@@ -27,9 +27,9 @@
     </licenses>
 
     <scm>
-        <url>git@github.com:yu31/protoc-plugin.git</url>
-        <connection>scm:git:git@github.com:yu31/protoc-plugin.git</connection>
-        <developerConnection>scm:git:git@github.com:yu31/protoc-plugin.git</developerConnection>
+        <url>git@github.com:yu31/protoc-plugin-default.git</url>
+        <connection>scm:git:git@github.com:yu31/protoc-plugin-default.git</connection>
+        <developerConnection>scm:git:git@github.com:yu31/protoc-plugin-default.git</developerConnection>
     </scm>
 
     <developers>

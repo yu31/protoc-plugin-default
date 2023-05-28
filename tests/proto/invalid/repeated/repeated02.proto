@@ -10,8 +10,8 @@ option go_package = "xgo/tests/pb/pbinvalid";
 //
 //import "tests/proto/module/external.proto";
 
-import "proto/defaults.proto";
+import "proto/default.proto";
 
 message Repeated02 {
-  repeated string field02 = 2 [ (defaults.field).plain = { value: { int32: 0 } } ];
+  repeated string field02 = 2 [ (default.field).plain = { value: { int32: 0 } } ];
 }

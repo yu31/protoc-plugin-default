@@ -12,7 +12,7 @@ import "tests/proto/module/external.proto";
 
 import "tests/proto/cases/types/type_common.proto";
 
-import "proto/defaults.proto";
+import "proto/default.proto";
 
 // EnumOneOf1 used tests cases in this file.
 enum EnumOneOf1 {
@@ -33,119 +33,119 @@ enum EnumOneOf1 {
 message MessageOneOf1 {
   message Embed1 {
     message Embed2 {
-      string f_string1 = 1 [ (defaults.field).plain = { value: { string: "1" } } ];
-      string f_string2 = 2 [ (defaults.field).plain = { value: { string: "2" } } ];
-      string f_string3 = 3 [ (defaults.field).plain = { value: { string: "3" } } ];
+      string f_string1 = 1 [ (default.field).plain = { value: { string: "1" } } ];
+      string f_string2 = 2 [ (default.field).plain = { value: { string: "2" } } ];
+      string f_string3 = 3 [ (default.field).plain = { value: { string: "3" } } ];
     }
-    string f_string1 = 1 [ (defaults.field).plain = { value: { string: "x" } } ];
-    string f_string2 = 2 [ (defaults.field).plain = { value: { string: "y" } } ];
-    string f_string3 = 3 [ (defaults.field).plain = { value: { string: "z" } } ];
+    string f_string1 = 1 [ (default.field).plain = { value: { string: "x" } } ];
+    string f_string2 = 2 [ (default.field).plain = { value: { string: "y" } } ];
+    string f_string3 = 3 [ (default.field).plain = { value: { string: "z" } } ];
   }
-  string f_string1 = 1 [ (defaults.field).plain = { value: { string: "a" } } ];
-  string f_string2 = 2 [ (defaults.field).plain = { value: { string: "b" } } ];
-  string f_string3 = 3 [ (defaults.field).plain = { value: { string: "c" } } ];
+  string f_string1 = 1 [ (default.field).plain = { value: { string: "a" } } ];
+  string f_string2 = 2 [ (default.field).plain = { value: { string: "b" } } ];
+  string f_string3 = 3 [ (default.field).plain = { value: { string: "c" } } ];
 }
 
 // Test case for field in `oneof` parts.
 message TypeOneOf1 {
   oneof OneType1 {
-    string f_string1 = 1 [ (defaults.field).plain = { value: { string: "ts1" } } ];
-    string f_string2 = 2 [ (defaults.field).plain = { value: { string: "" } } ];
-    string f_string3 = 3 [ (defaults.field).plain = { value: { string: '""' } } ];
-    string f_string4 = 4 [ (defaults.field).plain = { value: { string: '"ts4"' } } ];
-    string f_string5 = 5 [ (defaults.field).plain = { value: { string: '"ts5"' } } ];
-    string f_string6 = 6 [ (defaults.field).plain = { value: { string: '"ts\"6"' } } ];
-    string f_string7 = 7 [ (defaults.field).plain = { value: { string: '"ts"7"' } } ];
-    string f_string8 = 8 [ (defaults.field).plain = { value: { string: '[ts8]' } } ];
-    string f_string9 = 9 [ (defaults.field).plain = { value: { string: '{ts9}' } } ];
+    string f_string1 = 1 [ (default.field).plain = { value: { string: "ts1" } } ];
+    string f_string2 = 2 [ (default.field).plain = { value: { string: "" } } ];
+    string f_string3 = 3 [ (default.field).plain = { value: { string: '""' } } ];
+    string f_string4 = 4 [ (default.field).plain = { value: { string: '"ts4"' } } ];
+    string f_string5 = 5 [ (default.field).plain = { value: { string: '"ts5"' } } ];
+    string f_string6 = 6 [ (default.field).plain = { value: { string: '"ts\"6"' } } ];
+    string f_string7 = 7 [ (default.field).plain = { value: { string: '"ts"7"' } } ];
+    string f_string8 = 8 [ (default.field).plain = { value: { string: '[ts8]' } } ];
+    string f_string9 = 9 [ (default.field).plain = { value: { string: '{ts9}' } } ];
 
-    int32    f_int32    = 11 [ (defaults.field).plain = { value: { int32: 1 } } ];
-    int64    f_int64    = 12 [ (defaults.field).plain = { value: { int64: 2 } } ];
-    uint32   f_uint32   = 13 [ (defaults.field).plain = { value: { uint32: 3 } } ];
-    uint64   f_uint64   = 14 [ (defaults.field).plain = { value: { uint64: 4 } } ];
-    sint32   f_sint32   = 15 [ (defaults.field).plain = { value: { sint32: 5 } } ];
-    sint64   f_sint64   = 16 [ (defaults.field).plain = { value: { sint64: 6 } } ];
-    sfixed32 f_sfixed32 = 17 [ (defaults.field).plain = { value: { sfixed32: 7 } } ];
-    sfixed64 f_sfixed64 = 18 [ (defaults.field).plain = { value: { sfixed64: 8 } } ];
-    fixed32  f_fixed32  = 19 [ (defaults.field).plain = { value: { fixed32: 9 } } ];
-    fixed64  f_fixed64  = 20 [ (defaults.field).plain = { value: { fixed64: 10 } } ];
-    float    f_float    = 21 [ (defaults.field).plain = { value: { float: 11.11 } } ];
-    double   f_double   = 22 [ (defaults.field).plain = { value: { double: 12.12 } } ];
+    int32    f_int32    = 11 [ (default.field).plain = { value: { int32: 1 } } ];
+    int64    f_int64    = 12 [ (default.field).plain = { value: { int64: 2 } } ];
+    uint32   f_uint32   = 13 [ (default.field).plain = { value: { uint32: 3 } } ];
+    uint64   f_uint64   = 14 [ (default.field).plain = { value: { uint64: 4 } } ];
+    sint32   f_sint32   = 15 [ (default.field).plain = { value: { sint32: 5 } } ];
+    sint64   f_sint64   = 16 [ (default.field).plain = { value: { sint64: 6 } } ];
+    sfixed32 f_sfixed32 = 17 [ (default.field).plain = { value: { sfixed32: 7 } } ];
+    sfixed64 f_sfixed64 = 18 [ (default.field).plain = { value: { sfixed64: 8 } } ];
+    fixed32  f_fixed32  = 19 [ (default.field).plain = { value: { fixed32: 9 } } ];
+    fixed64  f_fixed64  = 20 [ (default.field).plain = { value: { fixed64: 10 } } ];
+    float    f_float    = 21 [ (default.field).plain = { value: { float: 11.11 } } ];
+    double   f_double   = 22 [ (default.field).plain = { value: { double: 12.12 } } ];
 
-    bool f_bool1 = 31 [ (defaults.field).plain = { value: { bool: true } } ];
-    bool f_bool2 = 32 [ (defaults.field).plain = { value: { bool: false } } ];
+    bool f_bool1 = 31 [ (default.field).plain = { value: { bool: true } } ];
+    bool f_bool2 = 32 [ (default.field).plain = { value: { bool: false } } ];
 
-    bytes f_bytes1 = 41 [ (defaults.field).plain = { value: { bytes: "" } } ];
-    bytes f_bytes2 = 42 [ (defaults.field).plain = { value: { bytes: "abc" } } ];
+    bytes f_bytes1 = 41 [ (default.field).plain = { value: { bytes: "" } } ];
+    bytes f_bytes2 = 42 [ (default.field).plain = { value: { bytes: "abc" } } ];
 
-    EnumOneOf1                     f_enum1 = 51 [ (defaults.field).plain = { value: { enum: 2 } } ];
-    EnumOneOf1                     f_enum2 = 52 [ (defaults.field).plain = { value: { enum: 10 } } ];
-    external.Month1                f_enum3 = 53 [ (defaults.field).plain = { value: { enum: 1 } } ];
-    external.Month2                f_enum4 = 54 [ (defaults.field).plain = { value: { enum: 7 } } ];
-    external.EnumWeek1.Week        f_enum5 = 55 [ (defaults.field).plain = { value: { enum: 3 } } ];
-    external.EnumWeek2.Embed1.Week f_enum6 = 56 [ (defaults.field).plain = { value: { enum: 13 } } ];
-    type_common.EnumCommon1        f_enum7 = 57 [ (defaults.field).plain = { value: { enum: 9 } } ];
+    EnumOneOf1                     f_enum1 = 51 [ (default.field).plain = { value: { enum: 2 } } ];
+    EnumOneOf1                     f_enum2 = 52 [ (default.field).plain = { value: { enum: 10 } } ];
+    external.Month1                f_enum3 = 53 [ (default.field).plain = { value: { enum: 1 } } ];
+    external.Month2                f_enum4 = 54 [ (default.field).plain = { value: { enum: 7 } } ];
+    external.EnumWeek1.Week        f_enum5 = 55 [ (default.field).plain = { value: { enum: 3 } } ];
+    external.EnumWeek2.Embed1.Week f_enum6 = 56 [ (default.field).plain = { value: { enum: 13 } } ];
+    type_common.EnumCommon1        f_enum7 = 57 [ (default.field).plain = { value: { enum: 9 } } ];
 
-    google.protobuf.Duration f_duration1 = 61 [ (defaults.field).plain = {
+    google.protobuf.Duration f_duration1 = 61 [ (default.field).plain = {
       value: { duration: { seconds: 100, nanos: 200 } };
     } ];
-    google.protobuf.Duration f_duration2 = 62 [ (defaults.field).plain = {
+    google.protobuf.Duration f_duration2 = 62 [ (default.field).plain = {
       value: { duration: { seconds: 0, nanos: 0 } };
     } ];
 
-    google.protobuf.Timestamp f_timestamp1 = 63 [ (defaults.field).plain = {
+    google.protobuf.Timestamp f_timestamp1 = 63 [ (default.field).plain = {
       value: { timestamp: { seconds: 200, nanos: 300 } };
     } ];
-    google.protobuf.Timestamp f_timestamp2 = 64 [ (defaults.field).plain = {
+    google.protobuf.Timestamp f_timestamp2 = 64 [ (default.field).plain = {
       value: { timestamp: { seconds: 0, nanos: 0 } };
     } ];
 
-    MessageOneOf1                            f_message11 = 71 [ (defaults.field).plain = { value: { message: { init: true } } } ];
-    MessageOneOf1.Embed1                     f_message12 = 72 [ (defaults.field).plain = { value: { message: { init: true } }; skip_eval: true } ];
-    MessageOneOf1.Embed1.Embed2              f_message13 = 73 [ (defaults.field).plain = { value: { message: { init: true } } } ];
-    external.External1                       f_message14 = 74 [ (defaults.field).plain = { value: { message: { init: true } }; skip_eval: true } ];
-    external.External2.Embed1                f_message15 = 75 [ (defaults.field).plain = { value: { message: { init: true } } } ];
-    type_common.MessageCommon1               f_message16 = 76 [ (defaults.field).plain = { value: { message: { init: true } }; skip_eval: true } ];
-    type_common.MessageCommon1.Embed1        f_message17 = 77 [ (defaults.field).plain = { value: { message: { init: true } } } ];
-    type_common.MessageCommon1.Embed1.Embed2 f_message18 = 78 [ (defaults.field).plain = { value: { message: { init: true } }; skip_eval: true } ];
+    MessageOneOf1                            f_message11 = 71 [ (default.field).plain = { value: { message: { init: true } } } ];
+    MessageOneOf1.Embed1                     f_message12 = 72 [ (default.field).plain = { value: { message: { init: true } }; skip_eval: true } ];
+    MessageOneOf1.Embed1.Embed2              f_message13 = 73 [ (default.field).plain = { value: { message: { init: true } } } ];
+    external.External1                       f_message14 = 74 [ (default.field).plain = { value: { message: { init: true } }; skip_eval: true } ];
+    external.External2.Embed1                f_message15 = 75 [ (default.field).plain = { value: { message: { init: true } } } ];
+    type_common.MessageCommon1               f_message16 = 76 [ (default.field).plain = { value: { message: { init: true } }; skip_eval: true } ];
+    type_common.MessageCommon1.Embed1        f_message17 = 77 [ (default.field).plain = { value: { message: { init: true } } } ];
+    type_common.MessageCommon1.Embed1.Embed2 f_message18 = 78 [ (default.field).plain = { value: { message: { init: true } }; skip_eval: true } ];
 
-    MessageOneOf1                            f_message21 = 81 [ (defaults.field).plain = { value: { message: { init: false } } } ];
-    MessageOneOf1.Embed1                     f_message22 = 82 [ (defaults.field).plain = { value: { message: { init: false } }; skip_eval: true } ];
-    MessageOneOf1.Embed1.Embed2              f_message23 = 83 [ (defaults.field).plain = { value: { message: { init: false } } } ];
-    external.External1                       f_message24 = 84 [ (defaults.field).plain = { value: { message: { init: false } }; skip_eval: true } ];
-    external.External2.Embed1                f_message25 = 85 [ (defaults.field).plain = { value: { message: { init: false } } } ];
-    type_common.MessageCommon1               f_message26 = 86 [ (defaults.field).plain = { value: { message: { init: false } }; skip_eval: true } ];
-    type_common.MessageCommon1.Embed1        f_message27 = 87 [ (defaults.field).plain = { value: { message: { init: false } } } ];
-    type_common.MessageCommon1.Embed1.Embed2 f_message28 = 88 [ (defaults.field).plain = { value: { message: { init: false } }; skip_eval: true } ];
+    MessageOneOf1                            f_message21 = 81 [ (default.field).plain = { value: { message: { init: false } } } ];
+    MessageOneOf1.Embed1                     f_message22 = 82 [ (default.field).plain = { value: { message: { init: false } }; skip_eval: true } ];
+    MessageOneOf1.Embed1.Embed2              f_message23 = 83 [ (default.field).plain = { value: { message: { init: false } } } ];
+    external.External1                       f_message24 = 84 [ (default.field).plain = { value: { message: { init: false } }; skip_eval: true } ];
+    external.External2.Embed1                f_message25 = 85 [ (default.field).plain = { value: { message: { init: false } } } ];
+    type_common.MessageCommon1               f_message26 = 86 [ (default.field).plain = { value: { message: { init: false } }; skip_eval: true } ];
+    type_common.MessageCommon1.Embed1        f_message27 = 87 [ (default.field).plain = { value: { message: { init: false } } } ];
+    type_common.MessageCommon1.Embed1.Embed2 f_message28 = 88 [ (default.field).plain = { value: { message: { init: false } }; skip_eval: true } ];
 
-    google.protobuf.Any f_any1 = 101 [ (defaults.field).plain = {
+    google.protobuf.Any f_any1 = 101 [ (default.field).plain = {
       value: { any: { type_url: ".MessageOneOf1" } };
     } ];
-    google.protobuf.Any f_any2 = 102 [ (defaults.field).plain = {
+    google.protobuf.Any f_any2 = 102 [ (default.field).plain = {
       value: { any: { type_url: ".MessageOneOf1" } };
       skip_eval: true;
     } ];
-    google.protobuf.Any f_any3 = 103 [ (defaults.field).plain = {
+    google.protobuf.Any f_any3 = 103 [ (default.field).plain = {
       value: { any: { type_url: "tests/proto/cases/types/type_oneof.MessageOneOf1.Embed1" } };
       skip_eval: true;
     }];
-    google.protobuf.Any f_any4 = 104 [ (defaults.field).plain = {
+    google.protobuf.Any f_any4 = 104 [ (default.field).plain = {
       value: { any: { type_url: ".MessageOneOf1.Embed1.Embed2" } };
     } ];
-    google.protobuf.Any f_any5 = 105 [ (defaults.field).plain = {
+    google.protobuf.Any f_any5 = 105 [ (default.field).plain = {
       value: { any: { type_url: "tests/proto/module/external.External1" } };
       skip_eval: true;
     } ];
-    google.protobuf.Any f_any6 = 106 [ (defaults.field).plain = {
+    google.protobuf.Any f_any6 = 106 [ (default.field).plain = {
       value: { any: { type_url: "tests/proto/module/external.External2.Embed1" } };
     } ];
-    google.protobuf.Any f_any7 = 107 [ (defaults.field).plain = {
+    google.protobuf.Any f_any7 = 107 [ (default.field).plain = {
       value: { any: { type_url: "google/protobuf/timestamp.Timestamp" } };
     } ];
-    google.protobuf.Any f_any8 = 108 [ (defaults.field).plain = {
+    google.protobuf.Any f_any8 = 108 [ (default.field).plain = {
       value: { any: { type_url: "google/protobuf/any.Any" } };
     } ];
-    google.protobuf.Any f_any9 = 109 [ (defaults.field).plain = {
+    google.protobuf.Any f_any9 = 109 [ (default.field).plain = {
       value: { any: { type_url: "tests/proto/cases/types/type_common.MessageCommon1" } };
     } ];
   }
@@ -154,66 +154,66 @@ message TypeOneOf1 {
 // Test case for oneof filed.
 message TypeOneOf2 {
   oneof OneStr1 {
-    option (defaults.oneof) = { field: "f_string1" };
+    option (default.oneof) = { field: "f_string1" };
 
-    string f_string1 = 1 [ (defaults.field).plain = { value: { string: "a" } } ];
-    string f_string2 = 2 [ (defaults.field).plain = { value: { string: "b" } } ];
+    string f_string1 = 1 [ (default.field).plain = { value: { string: "a" } } ];
+    string f_string2 = 2 [ (default.field).plain = { value: { string: "b" } } ];
   }
 
   oneof OneStr2 {
-    option (defaults.oneof) = { field: "f_string4" };
+    option (default.oneof) = { field: "f_string4" };
 
-    string f_string3 = 3 [ (defaults.field).plain = { value: { string: "c" } } ];
-    string f_string4 = 4 [ (defaults.field).plain = { value: { string: "d" } } ];
+    string f_string3 = 3 [ (default.field).plain = { value: { string: "c" } } ];
+    string f_string4 = 4 [ (default.field).plain = { value: { string: "d" } } ];
   }
 
   oneof OneMsg1 {
-    option (defaults.oneof) = { field: "f_message11" };
+    option (default.oneof) = { field: "f_message11" };
 
-    MessageOneOf1               f_message11 = 11 [ (defaults.field).plain = { value: { message: { init: true } } } ];
-    MessageOneOf1.Embed1        f_message12 = 12 [ (defaults.field).plain = { value: { message: { init: true } }; skip_eval: true } ];
-    MessageOneOf1.Embed1.Embed2 f_message13 = 13 [ (defaults.field).plain = { value: { message: { init: true } } } ];
-    external.External1          f_message14 = 14 [ (defaults.field).plain = { value: { message: { init: true } }; skip_eval: true } ];
-    external.External2.Embed1   f_message15 = 15 [ (defaults.field).plain = { value: { message: { init: true } } } ];
+    MessageOneOf1               f_message11 = 11 [ (default.field).plain = { value: { message: { init: true } } } ];
+    MessageOneOf1.Embed1        f_message12 = 12 [ (default.field).plain = { value: { message: { init: true } }; skip_eval: true } ];
+    MessageOneOf1.Embed1.Embed2 f_message13 = 13 [ (default.field).plain = { value: { message: { init: true } } } ];
+    external.External1          f_message14 = 14 [ (default.field).plain = { value: { message: { init: true } }; skip_eval: true } ];
+    external.External2.Embed1   f_message15 = 15 [ (default.field).plain = { value: { message: { init: true } } } ];
   }
 
   oneof OneMsg2 {
-    option (defaults.oneof) = { field: "f_message22" };
+    option (default.oneof) = { field: "f_message22" };
 
-    MessageOneOf1               f_message21 = 21 [ (defaults.field).plain = { value: { message: { init: true } } } ];
-    MessageOneOf1.Embed1        f_message22 = 22 [ (defaults.field).plain = { value: { message: { init: true } }; skip_eval: true } ];
-    MessageOneOf1.Embed1.Embed2 f_message23 = 23 [ (defaults.field).plain = { value: { message: { init: true } } } ];
-    external.External1          f_message24 = 24 [ (defaults.field).plain = { value: { message: { init: true } }; skip_eval: true } ];
-    external.External2.Embed1   f_message25 = 25 [ (defaults.field).plain = { value: { message: { init: true } } } ];
+    MessageOneOf1               f_message21 = 21 [ (default.field).plain = { value: { message: { init: true } } } ];
+    MessageOneOf1.Embed1        f_message22 = 22 [ (default.field).plain = { value: { message: { init: true } }; skip_eval: true } ];
+    MessageOneOf1.Embed1.Embed2 f_message23 = 23 [ (default.field).plain = { value: { message: { init: true } } } ];
+    external.External1          f_message24 = 24 [ (default.field).plain = { value: { message: { init: true } }; skip_eval: true } ];
+    external.External2.Embed1   f_message25 = 25 [ (default.field).plain = { value: { message: { init: true } } } ];
   }
 
   oneof OneMsg3 {
-    option (defaults.oneof) = { field: "f_message33" };
+    option (default.oneof) = { field: "f_message33" };
 
-    MessageOneOf1               f_message31 = 31 [ (defaults.field).plain = { value: { message: { init: true } } } ];
-    MessageOneOf1.Embed1        f_message32 = 32 [ (defaults.field).plain = { value: { message: { init: true } }; skip_eval: true } ];
-    MessageOneOf1.Embed1.Embed2 f_message33 = 33 [ (defaults.field).plain = { value: { message: { init: true } } } ];
-    external.External1          f_message34 = 34 [ (defaults.field).plain = { value: { message: { init: true } }; skip_eval: true } ];
-    external.External2.Embed1   f_message35 = 35 [ (defaults.field).plain = { value: { message: { init: true } } } ];
+    MessageOneOf1               f_message31 = 31 [ (default.field).plain = { value: { message: { init: true } } } ];
+    MessageOneOf1.Embed1        f_message32 = 32 [ (default.field).plain = { value: { message: { init: true } }; skip_eval: true } ];
+    MessageOneOf1.Embed1.Embed2 f_message33 = 33 [ (default.field).plain = { value: { message: { init: true } } } ];
+    external.External1          f_message34 = 34 [ (default.field).plain = { value: { message: { init: true } }; skip_eval: true } ];
+    external.External2.Embed1   f_message35 = 35 [ (default.field).plain = { value: { message: { init: true } } } ];
   }
 
   oneof OneMsg4 {
-    option (defaults.oneof) = { field: "f_message44" };
+    option (default.oneof) = { field: "f_message44" };
 
-    MessageOneOf1               f_message41 = 41 [ (defaults.field).plain = { value: { message: { init: true } } } ];
-    MessageOneOf1.Embed1        f_message42 = 42 [ (defaults.field).plain = { value: { message: { init: true } }; skip_eval: true } ];
-    MessageOneOf1.Embed1.Embed2 f_message43 = 43 [ (defaults.field).plain = { value: { message: { init: true } } } ];
-    external.External1          f_message44 = 44 [ (defaults.field).plain = { value: { message: { init: true } }; skip_eval: true } ];
-    external.External2.Embed1   f_message45 = 45 [ (defaults.field).plain = { value: { message: { init: true } } } ];
+    MessageOneOf1               f_message41 = 41 [ (default.field).plain = { value: { message: { init: true } } } ];
+    MessageOneOf1.Embed1        f_message42 = 42 [ (default.field).plain = { value: { message: { init: true } }; skip_eval: true } ];
+    MessageOneOf1.Embed1.Embed2 f_message43 = 43 [ (default.field).plain = { value: { message: { init: true } } } ];
+    external.External1          f_message44 = 44 [ (default.field).plain = { value: { message: { init: true } }; skip_eval: true } ];
+    external.External2.Embed1   f_message45 = 45 [ (default.field).plain = { value: { message: { init: true } } } ];
   }
 
   oneof OneMsg5 {
-    option (defaults.oneof) = { field: "f_message55" };
+    option (default.oneof) = { field: "f_message55" };
 
-    MessageOneOf1               f_message51 = 51 [ (defaults.field).plain = { value: { message: { init: true } } } ];
-    MessageOneOf1.Embed1        f_message52 = 52 [ (defaults.field).plain = { value: { message: { init: true } }; skip_eval: true } ];
-    MessageOneOf1.Embed1.Embed2 f_message53 = 53 [ (defaults.field).plain = { value: { message: { init: true } } } ];
-    external.External1          f_message54 = 54 [ (defaults.field).plain = { value: { message: { init: true } }; skip_eval: true } ];
-    external.External2.Embed1   f_message55 = 55 [ (defaults.field).plain = { value: { message: { init: true } } } ];
+    MessageOneOf1               f_message51 = 51 [ (default.field).plain = { value: { message: { init: true } } } ];
+    MessageOneOf1.Embed1        f_message52 = 52 [ (default.field).plain = { value: { message: { init: true } }; skip_eval: true } ];
+    MessageOneOf1.Embed1.Embed2 f_message53 = 53 [ (default.field).plain = { value: { message: { init: true } } } ];
+    external.External1          f_message54 = 54 [ (default.field).plain = { value: { message: { init: true } }; skip_eval: true } ];
+    external.External2.Embed1   f_message55 = 55 [ (default.field).plain = { value: { message: { init: true } } } ];
   }
 }

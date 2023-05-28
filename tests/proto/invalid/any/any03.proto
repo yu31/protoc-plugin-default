@@ -10,8 +10,8 @@ import "google/protobuf/any.proto";
 //
 //import "tests/proto/module/external.proto";
 
-import "proto/defaults.proto";
+import "proto/default.proto";
 
 message Any03 {
-  google.protobuf.Any field03 = 3 [ (defaults.field).plain = { value: { int64: 0 } } ];
+  google.protobuf.Any field03 = 3 [ (default.field).plain = { value: { int64: 0 } } ];
 }

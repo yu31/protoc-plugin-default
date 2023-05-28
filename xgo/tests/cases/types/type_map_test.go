@@ -8,14 +8,14 @@ import (
 	"google.golang.org/protobuf/types/known/durationpb"
 	"google.golang.org/protobuf/types/known/timestamppb"
 
-	"github.com/yu31/protoc-plugin-defaults/xgo/tests/pb/pbexternal"
-	"github.com/yu31/protoc-plugin-defaults/xgo/tests/pb/pbtypes"
+	"github.com/yu31/protoc-plugin-default/xgo/tests/pb/pbexternal"
+	"github.com/yu31/protoc-plugin-default/xgo/tests/pb/pbtypes"
 )
 
 // Test cases the field value is nil pointer.
 func Test_TypeMap1_NIL(t *testing.T) {
 	data := pbtypes.TypeMap1{}
-	data.SetDefaults()
+	data.SetDefault()
 
 	t.Run("STRING", func(t *testing.T) {
 		require.Equal(t, 10, len(data.FString1))
@@ -374,7 +374,7 @@ func Test_TypeMap1_Empty(t *testing.T) {
 		FMessage6:   map[string]*pbtypes.MessageCommon1{},
 		FAny1:       map[string]*anypb.Any{},
 	}
-	data.SetDefaults()
+	data.SetDefault()
 
 	t.Run("STRING", func(t *testing.T) {
 		require.Equal(t, 10, len(data.FString1))
@@ -733,7 +733,7 @@ func Test_TypeMap1_Ignore(t *testing.T) {
 		FMessage6:   map[string]*pbtypes.MessageCommon1{"mk6": {FString1: "1601", FString2: "1602", FString3: "1603"}},
 		FAny1:       map[string]*anypb.Any{"ak1": mustNewAny(&pbexternal.External3{TString: "any1"})},
 	}
-	data.SetDefaults()
+	data.SetDefault()
 
 	t.Run("STRING", func(t *testing.T) {
 		require.Equal(t, 1, len(data.FString1))
@@ -882,7 +882,7 @@ func Test_TypeMap1_Ignore(t *testing.T) {
 // Test cases the field value is nil pointer.
 func Test_TypeMap2_NIL(t *testing.T) {
 	data := pbtypes.TypeMap2{}
-	data.SetDefaults()
+	data.SetDefault()
 
 	t.Run("STRING", func(t *testing.T) {
 		require.Equal(t, 10, len(data.FString1))
@@ -1241,7 +1241,7 @@ func Test_TypeMap2_Empty(t *testing.T) {
 		FMessage6:   map[string]*pbtypes.MessageCommon1{},
 		FAny1:       map[string]*anypb.Any{},
 	}
-	data.SetDefaults()
+	data.SetDefault()
 
 	t.Run("STRING", func(t *testing.T) {
 		require.Equal(t, 0, len(data.FString1))
@@ -1395,7 +1395,7 @@ func Test_TypeMap2_Ignore(t *testing.T) {
 		FMessage6:   map[string]*pbtypes.MessageCommon1{"mk6": {FString1: "1601", FString2: "1602", FString3: "1603"}},
 		FAny1:       map[string]*anypb.Any{"ak1": mustNewAny(&pbexternal.External3{TString: "any1"})},
 	}
-	data.SetDefaults()
+	data.SetDefault()
 
 	t.Run("STRING", func(t *testing.T) {
 		require.Equal(t, 1, len(data.FString1))
@@ -1544,7 +1544,7 @@ func Test_TypeMap2_Ignore(t *testing.T) {
 // Test cases the field value is nil pointer.
 func Test_TypeMap3_NIL(t *testing.T) {
 	data := pbtypes.TypeMap3{}
-	data.SetDefaults()
+	data.SetDefault()
 
 	t.Run("f_string1", func(t *testing.T) {
 		require.Equal(t, 4, len(data.FString1))
@@ -1657,7 +1657,7 @@ func Test_TypeMap3_Empty(t *testing.T) {
 		FFixed64:  map[uint64]uint64{},
 		FBool1:    map[bool]bool{},
 	}
-	data.SetDefaults()
+	data.SetDefault()
 
 	t.Run("f_string1", func(t *testing.T) {
 		require.Equal(t, 0, len(data.FString1))
@@ -1752,7 +1752,7 @@ func Test_TypeMap3_Ignore(t *testing.T) {
 		FFixed64:  map[uint64]uint64{110: 110},
 		FBool1:    map[bool]bool{true: true},
 	}
-	data.SetDefaults()
+	data.SetDefault()
 
 	t.Run("f_string1", func(t *testing.T) {
 		require.Equal(t, 1, len(data.FString1))

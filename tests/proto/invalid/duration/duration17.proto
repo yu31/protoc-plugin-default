@@ -10,8 +10,8 @@ import "google/protobuf/duration.proto";
 //
 //import "tests/proto/module/external.proto";
 
-import "proto/defaults.proto";
+import "proto/default.proto";
 
 message Duration17 {
-  google.protobuf.Duration field17 = 17 [ (defaults.field).plain = { value: { message: { init: true } } } ];
+  google.protobuf.Duration field17 = 17 [ (default.field).plain = { value: { message: { init: true } } } ];
 }

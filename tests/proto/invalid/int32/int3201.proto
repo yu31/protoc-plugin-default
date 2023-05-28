@@ -10,8 +10,8 @@ option go_package = "xgo/tests/pb/pbinvalid";
 //
 //import "tests/proto/module/external.proto";
 
-import "proto/defaults.proto";
+import "proto/default.proto";
 
 message Int3201 {
-  int32 field01 = 1 [ (defaults.field).plain = { value: { string: "a" } } ];
+  int32 field01 = 1 [ (default.field).plain = { value: { string: "a" } } ];
 }

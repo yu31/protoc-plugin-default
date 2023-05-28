@@ -10,8 +10,8 @@ option go_package = "xgo/tests/pb/pbinvalid";
 //
 //import "tests/proto/module/external.proto";
 
-import "proto/defaults.proto";
+import "proto/default.proto";
 
 message Map21 {
-  map<string, string> field21 = 21 [ (defaults.field).repeated = { items: [ { } ] } ];
+  map<string, string> field21 = 21 [ (default.field).repeated = { items: [ { } ] } ];
 }

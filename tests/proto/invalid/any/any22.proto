@@ -10,8 +10,8 @@ import "google/protobuf/any.proto";
 //
 //import "tests/proto/module/external.proto";
 
-import "proto/defaults.proto";
+import "proto/default.proto";
 
 message Any22 {
-  google.protobuf.Any field22 = 22 [ (defaults.field).map = { kvs: [ { } ] } ];
+  google.protobuf.Any field22 = 22 [ (default.field).map = { kvs: [ { } ] } ];
 }

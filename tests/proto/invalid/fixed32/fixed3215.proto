@@ -10,8 +10,8 @@ option go_package = "xgo/tests/pb/pbinvalid";
 //
 //import "tests/proto/module/external.proto";
 
-import "proto/defaults.proto";
+import "proto/default.proto";
 
 message Fixed3215 {
-  fixed32 field16 = 16 [ (defaults.field).plain = { value: { bytes: "a" } } ];
+  fixed32 field16 = 16 [ (default.field).plain = { value: { bytes: "a" } } ];
 }

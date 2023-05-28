@@ -10,8 +10,8 @@ import "google/protobuf/any.proto";
 //
 //import "tests/proto/module/external.proto";
 
-import "proto/defaults.proto";
+import "proto/default.proto";
 
 message Any20 {
-  google.protobuf.Any field20 = 20 [ (defaults.field).plain = { value: { timestamp: { seconds: 1, nanos: 1 } } } ];
+  google.protobuf.Any field20 = 20 [ (default.field).plain = { value: { timestamp: { seconds: 1, nanos: 1 } } } ];
 }

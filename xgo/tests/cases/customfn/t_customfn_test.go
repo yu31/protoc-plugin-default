@@ -5,7 +5,7 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-	"github.com/yu31/protoc-plugin-defaults/xgo/tests/pb/pbcustomfn"
+	"github.com/yu31/protoc-plugin-default/xgo/tests/pb/pbcustomfn"
 )
 
 func Test_CustomMethodFuncName1(t *testing.T) {

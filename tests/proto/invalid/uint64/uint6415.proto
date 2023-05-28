@@ -10,8 +10,8 @@ option go_package = "xgo/tests/pb/pbinvalid";
 //
 //import "tests/proto/module/external.proto";
 
-import "proto/defaults.proto";
+import "proto/default.proto";
 
 message UInt6415 {
-  uint64 field16 = 16 [ (defaults.field).plain = { value: { bytes: "a" } } ];
+  uint64 field16 = 16 [ (default.field).plain = { value: { bytes: "a" } } ];
 }

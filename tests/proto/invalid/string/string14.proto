@@ -10,8 +10,8 @@ option go_package = "xgo/tests/pb/pbinvalid";
 //
 //import "tests/proto/module/external.proto";
 
-import "proto/defaults.proto";
+import "proto/default.proto";
 
 message String14 {
-  string field14 = 14 [ (defaults.field).plain = { value: { bool: true } } ];
+  string field14 = 14 [ (default.field).plain = { value: { bool: true } } ];
 }

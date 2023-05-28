@@ -10,8 +10,8 @@ option go_package = "xgo/tests/pb/pbinvalid";
 //
 //import "tests/proto/module/external.proto";
 
-import "proto/defaults.proto";
+import "proto/default.proto";
 
 message Bool08 {
-  bool field08 = 8 [ (defaults.field).plain = { value: { uint32: 0 } } ];
+  bool field08 = 8 [ (default.field).plain = { value: { uint32: 0 } } ];
 }

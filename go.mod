@@ -1,4 +1,4 @@
-module github.com/yu31/protoc-plugin-defaults
+module github.com/yu31/protoc-plugin-default
 
 go 1.15
 

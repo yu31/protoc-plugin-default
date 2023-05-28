@@ -10,8 +10,8 @@ option go_package = "xgo/tests/pb/pbinvalid";
 //
 //import "tests/proto/module/external.proto";
 
-import "proto/defaults.proto";
+import "proto/default.proto";
 
 message Repeated20 {
-  repeated string field20 = 20 [ (defaults.field).plain = { value: { timestamp: { seconds: 1, nanos: 1 } } } ];
+  repeated string field20 = 20 [ (default.field).plain = { value: { timestamp: { seconds: 1, nanos: 1 } } } ];
 }

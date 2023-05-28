@@ -10,8 +10,8 @@ import "google/protobuf/any.proto";
 //
 //import "tests/proto/module/external.proto";
 
-import "proto/defaults.proto";
+import "proto/default.proto";
 
 message Any07 {
-  google.protobuf.Any field07 = 7 [ (defaults.field).plain = { value: { sfixed64: 0 } } ];
+  google.protobuf.Any field07 = 7 [ (default.field).plain = { value: { sfixed64: 0 } } ];
 }

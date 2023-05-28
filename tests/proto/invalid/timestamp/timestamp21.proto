@@ -10,8 +10,8 @@ import "google/protobuf/timestamp.proto";
 //
 //import "tests/proto/module/external.proto";
 
-import "proto/defaults.proto";
+import "proto/default.proto";
 
 message Timestamp21 {
-  google.protobuf.Timestamp field21 = 21 [ (defaults.field).repeated = { items: [ { } ] } ];
+  google.protobuf.Timestamp field21 = 21 [ (default.field).repeated = { items: [ { } ] } ];
 }

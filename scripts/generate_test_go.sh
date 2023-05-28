@@ -8,9 +8,9 @@ cd "${CURRENT_PATH}"/.. || exit 1
 
 export PATH="./build/bin:$PATH"
 
-PLUGIN="godefaults"
+PLUGIN="godefault"
 
-MODULE="github.com/yu31/protoc-plugin-defaults"
+MODULE="github.com/yu31/protoc-plugin-default"
 
 # Delete old file first.
 /bin/rm -fr ./xgo/tests/pb/*/*.pb.go;

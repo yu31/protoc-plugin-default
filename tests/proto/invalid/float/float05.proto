@@ -10,8 +10,8 @@ option go_package = "xgo/tests/pb/pbinvalid";
 //
 //import "tests/proto/module/external.proto";
 
-import "proto/defaults.proto";
+import "proto/default.proto";
 
 message Float05 {
-  float field05 = 5 [ (defaults.field).plain = { value: { sint64: 0 } } ];
+  float field05 = 5 [ (default.field).plain = { value: { sint64: 0 } } ];
 }

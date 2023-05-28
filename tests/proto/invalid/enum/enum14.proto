@@ -10,8 +10,8 @@ option go_package = "xgo/tests/pb/pbinvalid";
 //
 import "tests/proto/module/external.proto";
 
-import "proto/defaults.proto";
+import "proto/default.proto";
 
 message Enum14 {
-  external.Month1 field14 = 14 [ (defaults.field).plain = { value: { bool: true } } ];
+  external.Month1 field14 = 14 [ (default.field).plain = { value: { bool: true } } ];
 }

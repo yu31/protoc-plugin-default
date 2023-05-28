@@ -10,8 +10,8 @@ option go_package = "xgo/tests/pb/pbinvalid";
 //
 //import "tests/proto/module/external.proto";
 
-import "proto/defaults.proto";
+import "proto/default.proto";
 
 message Double04 {
-  double field04 = 4 [ (defaults.field).plain = { value: { sint32: 0 } } ];
+  double field04 = 4 [ (default.field).plain = { value: { sint32: 0 } } ];
 }

@@ -10,8 +10,8 @@ option go_package = "xgo/tests/pb/pbinvalid";
 //
 //import "tests/proto/module/external.proto";
 
-import "proto/defaults.proto";
+import "proto/default.proto";
 
 message SInt3215 {
-  sint32 field16 = 16 [ (defaults.field).plain = { value: { bytes: "a" } } ];
+  sint32 field16 = 16 [ (default.field).plain = { value: { bytes: "a" } } ];
 }

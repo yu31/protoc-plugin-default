@@ -10,8 +10,8 @@ import "google/protobuf/timestamp.proto";
 //
 //import "tests/proto/module/external.proto";
 
-import "proto/defaults.proto";
+import "proto/default.proto";
 
 message Timestamp18 {
-  google.protobuf.Timestamp field18 = 18 [ (defaults.field).plain = { value: { any: { type_url: "" } } } ];
+  google.protobuf.Timestamp field18 = 18 [ (default.field).plain = { value: { any: { type_url: "" } } } ];
 }

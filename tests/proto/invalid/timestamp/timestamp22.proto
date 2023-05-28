@@ -10,8 +10,8 @@ import "google/protobuf/timestamp.proto";
 //
 //import "tests/proto/module/external.proto";
 
-import "proto/defaults.proto";
+import "proto/default.proto";
 
 message Timestamp22 {
-  google.protobuf.Timestamp field22 = 22 [ (defaults.field).map = { kvs: [ { } ] } ];
+  google.protobuf.Timestamp field22 = 22 [ (default.field).map = { kvs: [ { } ] } ];
 }

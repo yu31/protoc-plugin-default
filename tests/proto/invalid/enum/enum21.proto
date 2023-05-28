@@ -10,8 +10,8 @@ option go_package = "xgo/tests/pb/pbinvalid";
 //
 import "tests/proto/module/external.proto";
 
-import "proto/defaults.proto";
+import "proto/default.proto";
 
 message Enum21 {
-  external.Month1 field21 = 21 [ (defaults.field).repeated = { items: [ { } ] } ];
+  external.Month1 field21 = 21 [ (default.field).repeated = { items: [ { } ] } ];
 }

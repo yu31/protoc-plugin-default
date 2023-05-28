@@ -12,7 +12,7 @@ import "tests/proto/module/external.proto";
 
 import "tests/proto/cases/empty/empty_common.proto";
 
-import "proto/defaults.proto";
+import "proto/default.proto";
 
 // EnumPlain1 used tests cases in this file.
 enum EnumPlain1 {
@@ -33,92 +33,92 @@ enum EnumPlain1 {
 message MessagePlain1 {
   message Embed1 {
     message Embed2 {
-      string f_string1 = 1 [ (defaults.field).plain = { value: { } } ];
-      string f_string2 = 2 [ (defaults.field).plain = { } ];
-      string f_string3 = 3 [ (defaults.field) = { } ];
+      string f_string1 = 1 [ (default.field).plain = { value: { } } ];
+      string f_string2 = 2 [ (default.field).plain = { } ];
+      string f_string3 = 3 [ (default.field) = { } ];
       string f_string4 = 4;
     }
-    string f_string1 = 1 [ (defaults.field).plain = { value: { } } ];
-    string f_string2 = 2 [ (defaults.field).plain = { } ];
-    string f_string3 = 3 [ (defaults.field) = { } ];
+    string f_string1 = 1 [ (default.field).plain = { value: { } } ];
+    string f_string2 = 2 [ (default.field).plain = { } ];
+    string f_string3 = 3 [ (default.field) = { } ];
     string f_string4 = 4;
   }
-  string f_string1 = 1 [ (defaults.field).plain = { value: { } } ];
-  string f_string2 = 2 [ (defaults.field).plain = { } ];
-  string f_string3 = 3 [ (defaults.field) = { } ];
+  string f_string1 = 1 [ (default.field).plain = { value: { } } ];
+  string f_string2 = 2 [ (default.field).plain = { } ];
+  string f_string3 = 3 [ (default.field) = { } ];
   string f_string4 = 4;
 }
 
 // Test case for field plain.
 message TypePlain1 {
-  string f_string1 = 1 [ (defaults.field).plain = { value: { } } ];
-  string f_string2 = 2 [ (defaults.field).plain = { } ];
-  string f_string3 = 3 [ (defaults.field) = { } ];
+  string f_string1 = 1 [ (default.field).plain = { value: { } } ];
+  string f_string2 = 2 [ (default.field).plain = { } ];
+  string f_string3 = 3 [ (default.field) = { } ];
   string f_string4 = 4 ;
-  string f_string5 = 5 [ (defaults.field).plain = { value: { } } ];
-  string f_string6 = 6 [ (defaults.field).plain = { } ];
-  string f_string7 = 7 [ (defaults.field) = { } ];
+  string f_string5 = 5 [ (default.field).plain = { value: { } } ];
+  string f_string6 = 6 [ (default.field).plain = { } ];
+  string f_string7 = 7 [ (default.field) = { } ];
   string f_string8 = 8 ;
-  string f_string9 = 9 [ (defaults.field).plain = { value: { } } ];
+  string f_string9 = 9 [ (default.field).plain = { value: { } } ];
 
-  int32    f_int32    = 11 [ (defaults.field).plain = { value: { } } ];
-  int64    f_int64    = 12 [ (defaults.field).plain = { } ];
-  uint32   f_uint32   = 13 [ (defaults.field) = { } ];
+  int32    f_int32    = 11 [ (default.field).plain = { value: { } } ];
+  int64    f_int64    = 12 [ (default.field).plain = { } ];
+  uint32   f_uint32   = 13 [ (default.field) = { } ];
   uint64   f_uint64   = 14 ;
-  sint32   f_sint32   = 15 [ (defaults.field).plain = { value: { } } ];
-  sint64   f_sint64   = 16 [ (defaults.field).plain = { } ];
-  sfixed32 f_sfixed32 = 17 [ (defaults.field) = { } ];
+  sint32   f_sint32   = 15 [ (default.field).plain = { value: { } } ];
+  sint64   f_sint64   = 16 [ (default.field).plain = { } ];
+  sfixed32 f_sfixed32 = 17 [ (default.field) = { } ];
   sfixed64 f_sfixed64 = 18 ;
-  fixed32  f_fixed32  = 19 [ (defaults.field).plain = { value: { } } ];
-  fixed64  f_fixed64  = 20 [ (defaults.field).plain = { value: { } } ];
-  float    f_float    = 21 [ (defaults.field).plain = { value: { } } ];
-  double   f_double   = 22 [ (defaults.field).plain = { value: { } } ];
+  fixed32  f_fixed32  = 19 [ (default.field).plain = { value: { } } ];
+  fixed64  f_fixed64  = 20 [ (default.field).plain = { value: { } } ];
+  float    f_float    = 21 [ (default.field).plain = { value: { } } ];
+  double   f_double   = 22 [ (default.field).plain = { value: { } } ];
 
-  bool f_bool1 = 31 [ (defaults.field).plain = { value: { } } ];
-  bool f_bool2 = 32 [ (defaults.field).plain = { } ];
+  bool f_bool1 = 31 [ (default.field).plain = { value: { } } ];
+  bool f_bool2 = 32 [ (default.field).plain = { } ];
 
-  bytes f_bytes1 = 41 [ (defaults.field).plain = { value: { } } ];
-  bytes f_bytes2 = 42 [ (defaults.field) = { } ];
+  bytes f_bytes1 = 41 [ (default.field).plain = { value: { } } ];
+  bytes f_bytes2 = 42 [ (default.field) = { } ];
 
-  EnumPlain1                     f_enum1 = 51 [ (defaults.field).plain = { value: { } } ];
-  EnumPlain1                     f_enum2 = 52 [ (defaults.field).plain = { } ];
-  external.Month1                f_enum3 = 53 [ (defaults.field) = { } ];
+  EnumPlain1                     f_enum1 = 51 [ (default.field).plain = { value: { } } ];
+  EnumPlain1                     f_enum2 = 52 [ (default.field).plain = { } ];
+  external.Month1                f_enum3 = 53 [ (default.field) = { } ];
   external.Month2                f_enum4 = 54 ;
-  external.EnumWeek1.Week        f_enum5 = 55 [ (defaults.field).plain = { value: { } } ];
-  external.EnumWeek2.Embed1.Week f_enum6 = 56 [ (defaults.field).plain = { } ];
-  type_common.EnumCommon1        f_enum7 = 57 [ (defaults.field) = { } ];
+  external.EnumWeek1.Week        f_enum5 = 55 [ (default.field).plain = { value: { } } ];
+  external.EnumWeek2.Embed1.Week f_enum6 = 56 [ (default.field).plain = { } ];
+  type_common.EnumCommon1        f_enum7 = 57 [ (default.field) = { } ];
 
-  google.protobuf.Duration f_duration1 = 61 [ (defaults.field).plain = { value: { } } ];
-  google.protobuf.Duration f_duration2 = 62 [ (defaults.field).plain = { } ];
+  google.protobuf.Duration f_duration1 = 61 [ (default.field).plain = { value: { } } ];
+  google.protobuf.Duration f_duration2 = 62 [ (default.field).plain = { } ];
 
-  google.protobuf.Timestamp f_timestamp1 = 63 [ (defaults.field) = { } ];
+  google.protobuf.Timestamp f_timestamp1 = 63 [ (default.field) = { } ];
   google.protobuf.Timestamp f_timestamp2 = 64 ;
 
-  MessagePlain1                            f_message11 = 71 [ (defaults.field).plain = { value: { } } ];
-  MessagePlain1.Embed1                     f_message12 = 72 [ (defaults.field).plain = { } ];
-  MessagePlain1.Embed1.Embed2              f_message13 = 73 [ (defaults.field) = { } ];
+  MessagePlain1                            f_message11 = 71 [ (default.field).plain = { value: { } } ];
+  MessagePlain1.Embed1                     f_message12 = 72 [ (default.field).plain = { } ];
+  MessagePlain1.Embed1.Embed2              f_message13 = 73 [ (default.field) = { } ];
   external.External1                       f_message14 = 74 ;
-  external.External2.Embed1                f_message15 = 75 [ (defaults.field).plain = { value: { } } ];
-  type_common.MessageCommon1               f_message16 = 76 [ (defaults.field).plain = { value: { } } ];
-  type_common.MessageCommon1.Embed1        f_message17 = 77 [ (defaults.field).plain = { } ];
-  type_common.MessageCommon1.Embed1.Embed2 f_message18 = 78 [ (defaults.field) = { } ];
+  external.External2.Embed1                f_message15 = 75 [ (default.field).plain = { value: { } } ];
+  type_common.MessageCommon1               f_message16 = 76 [ (default.field).plain = { value: { } } ];
+  type_common.MessageCommon1.Embed1        f_message17 = 77 [ (default.field).plain = { } ];
+  type_common.MessageCommon1.Embed1.Embed2 f_message18 = 78 [ (default.field) = { } ];
 
-  MessagePlain1                            f_message21 = 81 [ (defaults.field).plain = { value: { } } ];
-  MessagePlain1.Embed1                     f_message22 = 82 [ (defaults.field).plain = { value: { } } ];
+  MessagePlain1                            f_message21 = 81 [ (default.field).plain = { value: { } } ];
+  MessagePlain1.Embed1                     f_message22 = 82 [ (default.field).plain = { value: { } } ];
   MessagePlain1.Embed1.Embed2              f_message23 = 83 ;
-  external.External1                       f_message24 = 84 [ (defaults.field).plain = { } ];
-  external.External2.Embed1                f_message25 = 85 [ (defaults.field) = { } ];
-  type_common.MessageCommon1               f_message26 = 86 [ (defaults.field).plain = { value: { } } ];
-  type_common.MessageCommon1.Embed1        f_message27 = 87 [ (defaults.field) = { } ];
+  external.External1                       f_message24 = 84 [ (default.field).plain = { } ];
+  external.External2.Embed1                f_message25 = 85 [ (default.field) = { } ];
+  type_common.MessageCommon1               f_message26 = 86 [ (default.field).plain = { value: { } } ];
+  type_common.MessageCommon1.Embed1        f_message27 = 87 [ (default.field) = { } ];
   type_common.MessageCommon1.Embed1.Embed2 f_message28 = 88 ;
 
-  google.protobuf.Any f_any1 = 101 [ (defaults.field).plain = { value: { } } ];
-  google.protobuf.Any f_any2 = 102 [ (defaults.field).plain = { } ];
-  google.protobuf.Any f_any3 = 103 [ (defaults.field) = { } ];
+  google.protobuf.Any f_any1 = 101 [ (default.field).plain = { value: { } } ];
+  google.protobuf.Any f_any2 = 102 [ (default.field).plain = { } ];
+  google.protobuf.Any f_any3 = 103 [ (default.field) = { } ];
   google.protobuf.Any f_any4 = 104 ;
-  google.protobuf.Any f_any5 = 105 [ (defaults.field).plain = { value: { } } ];
-  google.protobuf.Any f_any6 = 106 [ (defaults.field).plain = { } ];
-  google.protobuf.Any f_any7 = 107 [ (defaults.field) = { } ];
+  google.protobuf.Any f_any5 = 105 [ (default.field).plain = { value: { } } ];
+  google.protobuf.Any f_any6 = 106 [ (default.field).plain = { } ];
+  google.protobuf.Any f_any7 = 107 [ (default.field) = { } ];
   google.protobuf.Any f_any8 = 108 ;
-  google.protobuf.Any f_any9 = 109 [ (defaults.field).plain = { value: { } } ];
+  google.protobuf.Any f_any9 = 109 [ (default.field).plain = { value: { } } ];
 }

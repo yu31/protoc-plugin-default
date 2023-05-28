@@ -10,8 +10,8 @@ option go_package = "xgo/tests/pb/pbinvalid";
 //
 //import "tests/proto/module/external.proto";
 
-import "proto/defaults.proto";
+import "proto/default.proto";
 
 message SFixed6402 {
-  sfixed64 field02 = 2 [ (defaults.field).plain = { value: { int32: 0 } } ];
+  sfixed64 field02 = 2 [ (default.field).plain = { value: { int32: 0 } } ];
 }

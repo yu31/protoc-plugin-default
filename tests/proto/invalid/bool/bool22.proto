@@ -10,8 +10,8 @@ option go_package = "xgo/tests/pb/pbinvalid";
 //
 //import "tests/proto/module/external.proto";
 
-import "proto/defaults.proto";
+import "proto/default.proto";
 
 message Bool22 {
-  bool field22 = 22 [ (defaults.field).map = { kvs: [ { } ] } ];
+  bool field22 = 22 [ (default.field).map = { kvs: [ { } ] } ];
 }

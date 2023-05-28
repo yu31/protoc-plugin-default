@@ -10,8 +10,8 @@ option go_package = "xgo/tests/pb/pbinvalid";
 //
 //import "tests/proto/module/external.proto";
 
-import "proto/defaults.proto";
+import "proto/default.proto";
 
 message Double18 {
-  double field18 = 18 [ (defaults.field).plain = { value: { any: { type_url: "" } } } ];
+  double field18 = 18 [ (default.field).plain = { value: { any: { type_url: "" } } } ];
 }

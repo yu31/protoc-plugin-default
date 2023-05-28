@@ -10,8 +10,8 @@ option go_package = "xgo/tests/pb/pbinvalid";
 //
 //import "tests/proto/module/external.proto";
 
-import "proto/defaults.proto";
+import "proto/default.proto";
 
 message Int6416 {
-  int64 field17 = 17 [ (defaults.field).plain = { value: { message: { init: true } } } ];
+  int64 field17 = 17 [ (default.field).plain = { value: { message: { init: true } } } ];
 }
