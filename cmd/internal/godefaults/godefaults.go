@@ -4,11 +4,11 @@ import (
 	"flag"
 	"sync"
 
-	"github.com/yu31/protoc-go-kit/helper/pgkbuffer"
-	"github.com/yu31/protoc-go-kit/utils/pgkmessage"
+	"github.com/yu31/protoc-kit-go/helper/pkbuffer"
+	"github.com/yu31/protoc-kit-go/utils/pkmessage"
 	"google.golang.org/protobuf/compiler/protogen"
 
-	"github.com/yu31/protoc-go-kit/pgkgenerator"
+	"github.com/yu31/protoc-kit-go/pkgenerator"
 )
 
 const version = "0.0.1"
@@ -27,10 +27,10 @@ type Plugin struct {
 	// The message of currently being processed.
 	once    *sync.Once
 	message *protogen.Message
-	extend  *pgkbuffer.Buffer
+	extend  *pkbuffer.Buffer
 }
 
-func New() pgkgenerator.Plugin {
+func New() pkgenerator.Plugin {
 	p := &Plugin{}
 	// Usage: --godefaults_opt="fn=SetDefaults"
 	p.flags.StringVar(&p.funcName, "fn", "", "The method func name")
@@ -60,7 +60,7 @@ func (p *Plugin) Init(pp *protogen.Plugin, file *protogen.File) bool {
 	}
 	p.pp = pp
 	p.file = file
-	p.messages = pgkmessage.LoadValidMessages(file.Messages)
+	p.messages = pkmessage.LoadValidMessages(file.Messages)
 	return true
 }
 

@@ -6,7 +6,7 @@ import (
 
 	"google.golang.org/protobuf/compiler/protogen"
 
-	"github.com/yu31/protoc-go-kit/helper/pgkerror"
+	"github.com/yu31/protoc-kit-go/helper/pkerror"
 
 	"github.com/yu31/protoc-plugin-defaults/xgo/pb/pbdefaults"
 )
@@ -24,7 +24,7 @@ func (p *Plugin) lookupMessageByTypeUrl(typeUrl string) *protogen.Message {
 
 	i := strings.Index(typeUrl, ".")
 	if i == -1 {
-		err := pgkerror.New("invalid format of type_url [%s]", typeUrl)
+		err := pkerror.New("invalid format of type_url [%s]", typeUrl)
 		panic(err)
 	}
 	// The first charset is "." represents the message is location in the current proto file.
@@ -36,11 +36,11 @@ func (p *Plugin) lookupMessageByTypeUrl(typeUrl string) *protogen.Message {
 	msgName = strings.TrimSpace(typeUrl[i+1:])
 
 	if importPath == "" {
-		err := pgkerror.New("not found import path in type_url [%s]", typeUrl)
+		err := pkerror.New("not found import path in type_url [%s]", typeUrl)
 		panic(err)
 	}
 	if msgName == "" {
-		err := pgkerror.New("not found message name in type_url [%s]", typeUrl)
+		err := pkerror.New("not found message name in type_url [%s]", typeUrl)
 		panic(err)
 	}
 	if importPath != "." {
@@ -63,7 +63,7 @@ func (p *Plugin) lookupMessageFromInputFiles(importPath string, msgName string) 
 		}
 	}
 	if file == nil {
-		err := pgkerror.New("cannot find proto file [%s] in import path", importPath)
+		err := pkerror.New("cannot find proto file [%s] in import path", importPath)
 		panic(err)
 	}
 
@@ -73,7 +73,7 @@ func (p *Plugin) lookupMessageFromInputFiles(importPath string, msgName string) 
 				return m
 			}
 		}
-		err := pgkerror.New("cannot find proto message [%s] in file [%s]", msgName, importPath)
+		err := pkerror.New("cannot find proto message [%s] in file [%s]", msgName, importPath)
 		panic(err)
 	}
 
