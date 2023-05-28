@@ -2,6 +2,7 @@ package godefaults
 
 import (
 	"reflect"
+	"strings"
 
 	"github.com/yu31/protoc-kit-go/helper/pkerror"
 
@@ -13,9 +14,10 @@ import (
 
 func (p *Plugin) getTagName(ot interface{}) string {
 	name := reflect.TypeOf(ot).Elem().Name()
-	//name = strings.TrimPrefix(name, "TagOptions_")
-	//name = strings.TrimSuffix(name, "_")
-	//name = strings.ToLower(name)
+	name = strings.TrimPrefix(name, "FieldType_")
+	name = strings.TrimPrefix(name, "FieldOptions_")
+	name = strings.TrimSuffix(name, "_")
+	name = strings.ToLower(name)
 	return name
 }
 
