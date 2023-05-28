@@ -17,6 +17,7 @@ function runCases() {
   return
 }
 
+# run test cases for types
 if [ -n "${DIR}" ]; then
   runCases "${ROOT}/${DIR}"
   exit $?
@@ -30,3 +31,7 @@ runCases "${ROOT}/types"
 
 # run test cases in customfn
 runCases "${ROOT}/customfn"
+
+# run test cases in empty
+runCases "${ROOT}/empty"
+
