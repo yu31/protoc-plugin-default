@@ -17,11 +17,11 @@ import "google/protobuf/duration.proto";
 import "google/protobuf/timestamp.proto";
 
 extend google.protobuf.FieldOptions {
-  FieldOptions field = 64020;
+  FieldOptions field = 63023;
 }
 
 extend google.protobuf.OneofOptions {
-  OneOfOptions oneof = 64021;
+  OneOfOptions oneof = 63024;
 }
 
 // OneOfOptions is the options for the oneof field.
