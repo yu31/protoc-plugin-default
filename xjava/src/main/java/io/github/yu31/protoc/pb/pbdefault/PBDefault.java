@@ -16,7 +16,7 @@ public final class PBDefault {
     registerAllExtensions(
         (com.google.protobuf.ExtensionRegistryLite) registry);
   }
-  public static final int FIELD_FIELD_NUMBER = 64020;
+  public static final int FIELD_FIELD_NUMBER = 63023;
   /**
    * <code>extend .google.protobuf.FieldOptions { ... }</code>
    */
@@ -27,7 +27,7 @@ public final class PBDefault {
           .newFileScopedGeneratedExtension(
         io.github.yu31.protoc.pb.pbdefault.FieldOptions.class,
         io.github.yu31.protoc.pb.pbdefault.FieldOptions.getDefaultInstance());
-  public static final int ONEOF_FIELD_NUMBER = 64020;
+  public static final int ONEOF_FIELD_NUMBER = 63024;
   /**
    * <code>extend .google.protobuf.OneofOptions { ... }</code>
    */
@@ -127,8 +127,8 @@ public final class PBDefault {
       "eMessage\022\021\n\004init\030\001 \001(\010H\000\210\001\001B\007\n\005_init\"-\n\007" +
       "TypeAny\022\025\n\010type_url\030\013 \001(\tH\000\210\001\001B\013\n\t_type_" +
       "url:E\n\005field\022\035.google.protobuf.FieldOpti" +
-      "ons\030\224\364\003 \001(\0132\025.default.FieldOptions:E\n\005on" +
-      "eof\022\035.google.protobuf.OneofOptions\030\224\364\003 \001" +
+      "ons\030\257\354\003 \001(\0132\025.default.FieldOptions:E\n\005on" +
+      "eof\022\035.google.protobuf.OneofOptions\030\260\354\003 \001" +
       "(\0132\025.default.OneOfOptionsBi\n\"io.github.y" +
       "u31.protoc.pb.pbdefaultB\tPBDefaultP\001Z6gi" +
       "thub.com/yu31/protoc-plugin-default/xgo/" +

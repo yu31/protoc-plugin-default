@@ -12,7 +12,7 @@ cd "${CURRENT_PATH}"/.. || exit 1
 output_dir="./xjava/src/main/java"
 
 # To avoids invalid code residue.
-/bin/rm -fr "$output_dir/protoc/pb"
+/bin/rm -fr "${output_dir}/io/github/yu31/protoc/pb"
 mkdir -p "$output_dir"
 
 for f in proto/*.proto; do
