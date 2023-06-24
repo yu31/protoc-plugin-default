@@ -10,7 +10,7 @@ import "google/protobuf/timestamp.proto";
 
 import "tests/proto/module/external.proto";
 
-import "tests/proto/cases/types/type_common.proto";
+import "tests/proto/cases/types/private.proto";
 
 import "proto/default.proto";
 
@@ -83,7 +83,7 @@ message TypeOptional1 {
   optional external.Month2                f_enum4 = 54 [ (default.field).plain = { value: { enum: 7 } } ];
   optional external.EnumWeek1.Week        f_enum5 = 55 [ (default.field).plain = { value: { enum: 3 } } ];
   optional external.EnumWeek2.Embed1.Week f_enum6 = 56 [ (default.field).plain = { value: { enum: 13 } } ];
-  optional type_common.EnumCommon1        f_enum7 = 57 [ (default.field).plain = { value: { enum: 9 } } ];
+  optional private.EnumCommon1            f_enum7 = 57 [ (default.field).plain = { value: { enum: 9 } } ];
 
   optional google.protobuf.Duration f_duration1 = 61 [ (default.field).plain = {
     value: { duration: { seconds: 100, nanos: 200 } };
@@ -99,23 +99,23 @@ message TypeOptional1 {
     value: { timestamp: { seconds: 0, nanos: 0 } };
   } ];
 
-  optional MessageOptional1                         f_message11 = 71 [ (default.field).plain = { value: { message: { init: true } } } ];
-  optional MessageOptional1.Embed1                  f_message12 = 72 [ (default.field).plain = { value: { message: { init: true } }; skip_eval: true } ];
-  optional MessageOptional1.Embed1.Embed2           f_message13 = 73 [ (default.field).plain = { value: { message: { init: true } } } ];
-  optional external.External1                       f_message14 = 74 [ (default.field).plain = { value: { message: { init: true } }; skip_eval: true } ];
-  optional external.External2.Embed1                f_message15 = 75 [ (default.field).plain = { value: { message: { init: true } } } ];
-  optional type_common.MessageCommon1               f_message16 = 76 [ (default.field).plain = { value: { message: { init: true } }; skip_eval: true } ];
-  optional type_common.MessageCommon1.Embed1        f_message17 = 77 [ (default.field).plain = { value: { message: { init: true } } } ];
-  optional type_common.MessageCommon1.Embed1.Embed2 f_message18 = 78 [ (default.field).plain = { value: { message: { init: true } }; skip_eval: true } ];
+  optional MessageOptional1                     f_message11 = 71 [ (default.field).plain = { value: { message: { init: true } } } ];
+  optional MessageOptional1.Embed1              f_message12 = 72 [ (default.field).plain = { value: { message: { init: true } }; skip_eval: true } ];
+  optional MessageOptional1.Embed1.Embed2       f_message13 = 73 [ (default.field).plain = { value: { message: { init: true } } } ];
+  optional external.External1                   f_message14 = 74 [ (default.field).plain = { value: { message: { init: true } }; skip_eval: true } ];
+  optional external.External2.Embed1            f_message15 = 75 [ (default.field).plain = { value: { message: { init: true } } } ];
+  optional private.MessageCommon1               f_message16 = 76 [ (default.field).plain = { value: { message: { init: true } }; skip_eval: true } ];
+  optional private.MessageCommon1.Embed1        f_message17 = 77 [ (default.field).plain = { value: { message: { init: true } } } ];
+  optional private.MessageCommon1.Embed1.Embed2 f_message18 = 78 [ (default.field).plain = { value: { message: { init: true } }; skip_eval: true } ];
 
-  optional MessageOptional1                         f_message21 = 81 [ (default.field).plain = { value: { message: { init: false } } } ];
-  optional MessageOptional1.Embed1                  f_message22 = 82 [ (default.field).plain = { value: { message: { init: false } }; skip_eval: true } ];
-  optional MessageOptional1.Embed1.Embed2           f_message23 = 83 [ (default.field).plain = { value: { message: { init: false } } } ];
-  optional external.External1                       f_message24 = 84 [ (default.field).plain = { value: { message: { init: false } }; skip_eval: true } ];
-  optional external.External2.Embed1                f_message25 = 85 [ (default.field).plain = { value: { message: { init: false } } } ];
-  optional type_common.MessageCommon1               f_message26 = 86 [ (default.field).plain = { value: { message: { init: false } }; skip_eval: true } ];
-  optional type_common.MessageCommon1.Embed1        f_message27 = 87 [ (default.field).plain = { value: { message: { init: false } } } ];
-  optional type_common.MessageCommon1.Embed1.Embed2 f_message28 = 88 [ (default.field).plain = { value: { message: { init: false } }; skip_eval: true } ];
+  optional MessageOptional1                     f_message21 = 81 [ (default.field).plain = { value: { message: { init: false } } } ];
+  optional MessageOptional1.Embed1              f_message22 = 82 [ (default.field).plain = { value: { message: { init: false } }; skip_eval: true } ];
+  optional MessageOptional1.Embed1.Embed2       f_message23 = 83 [ (default.field).plain = { value: { message: { init: false } } } ];
+  optional external.External1                   f_message24 = 84 [ (default.field).plain = { value: { message: { init: false } }; skip_eval: true } ];
+  optional external.External2.Embed1            f_message25 = 85 [ (default.field).plain = { value: { message: { init: false } } } ];
+  optional private.MessageCommon1               f_message26 = 86 [ (default.field).plain = { value: { message: { init: false } }; skip_eval: true } ];
+  optional private.MessageCommon1.Embed1        f_message27 = 87 [ (default.field).plain = { value: { message: { init: false } } } ];
+  optional private.MessageCommon1.Embed1.Embed2 f_message28 = 88 [ (default.field).plain = { value: { message: { init: false } }; skip_eval: true } ];
 
   optional google.protobuf.Any f_any1 = 101 [ (default.field).plain = {
     value: { any: { type_url: ".MessageOptional1" } };
@@ -145,7 +145,7 @@ message TypeOptional1 {
     value: { any: { type_url: "google/protobuf/any.Any" } };
   } ];
   optional google.protobuf.Any f_any9 = 109 [ (default.field).plain = {
-    value: { any: { type_url: "tests/proto/cases/types/type_common.MessageCommon1" } };
+    value: { any: { type_url: "tests/proto/cases/types/private.MessageCommon1" } };
   } ];
 }
 
@@ -186,25 +186,25 @@ message TypeOptional2 {
   optional external.Month2                f_enum4 = 54 [ (default.field).plain = { value: { enum: 7 }; ignore_empty: true } ];
   optional external.EnumWeek1.Week        f_enum5 = 55 [ (default.field).plain = { value: { enum: 3 }; ignore_empty: true } ];
   optional external.EnumWeek2.Embed1.Week f_enum6 = 56 [ (default.field).plain = { value: { enum: 13 }; ignore_empty: true } ];
-  optional type_common.EnumCommon1        f_enum7 = 57 [ (default.field).plain = { value: { enum: 9 }; ignore_empty: true } ];
+  optional private.EnumCommon1            f_enum7 = 57 [ (default.field).plain = { value: { enum: 9 }; ignore_empty: true } ];
 
-  optional MessageOptional1                         f_message11 = 61 [ (default.field).plain = { value: { message: { init: true } }; ignore_empty: true } ];
-  optional MessageOptional1.Embed1                  f_message12 = 62 [ (default.field).plain = { value: { message: { init: true } }; skip_eval: true; ignore_empty: true } ];
-  optional MessageOptional1.Embed1.Embed2           f_message13 = 63 [ (default.field).plain = { value: { message: { init: true } }; ignore_empty: true } ];
-  optional external.External1                       f_message14 = 64 [ (default.field).plain = { value: { message: { init: true } }; skip_eval: true; ignore_empty: true } ];
-  optional external.External2.Embed1                f_message15 = 65 [ (default.field).plain = { value: { message: { init: true } }; ignore_empty: true } ];
-  optional type_common.MessageCommon1               f_message16 = 66 [ (default.field).plain = { value: { message: { init: true } }; skip_eval: true; ignore_empty: true } ];
-  optional type_common.MessageCommon1.Embed1        f_message17 = 67 [ (default.field).plain = { value: { message: { init: true } }; ignore_empty: true; } ];
-  optional type_common.MessageCommon1.Embed1.Embed2 f_message18 = 68 [ (default.field).plain = { value: { message: { init: true } }; skip_eval: true; ignore_empty: true } ];
+  optional MessageOptional1                     f_message11 = 61 [ (default.field).plain = { value: { message: { init: true } }; ignore_empty: true } ];
+  optional MessageOptional1.Embed1              f_message12 = 62 [ (default.field).plain = { value: { message: { init: true } }; skip_eval: true; ignore_empty: true } ];
+  optional MessageOptional1.Embed1.Embed2       f_message13 = 63 [ (default.field).plain = { value: { message: { init: true } }; ignore_empty: true } ];
+  optional external.External1                   f_message14 = 64 [ (default.field).plain = { value: { message: { init: true } }; skip_eval: true; ignore_empty: true } ];
+  optional external.External2.Embed1            f_message15 = 65 [ (default.field).plain = { value: { message: { init: true } }; ignore_empty: true } ];
+  optional private.MessageCommon1               f_message16 = 66 [ (default.field).plain = { value: { message: { init: true } }; skip_eval: true; ignore_empty: true } ];
+  optional private.MessageCommon1.Embed1        f_message17 = 67 [ (default.field).plain = { value: { message: { init: true } }; ignore_empty: true; } ];
+  optional private.MessageCommon1.Embed1.Embed2 f_message18 = 68 [ (default.field).plain = { value: { message: { init: true } }; skip_eval: true; ignore_empty: true } ];
 
-  optional MessageOptional1                         f_message21 = 71 [ (default.field).plain = { value: { message: { init: false } }; ignore_empty: true } ];
-  optional MessageOptional1.Embed1                  f_message22 = 72 [ (default.field).plain = { value: { message: { init: false } }; skip_eval: true; ignore_empty: true } ];
-  optional MessageOptional1.Embed1.Embed2           f_message23 = 73 [ (default.field).plain = { value: { message: { init: false } }; ignore_empty: true } ];
-  optional external.External1                       f_message24 = 74 [ (default.field).plain = { value: { message: { init: false } }; skip_eval: true; ignore_empty: true } ];
-  optional external.External2.Embed1                f_message25 = 75 [ (default.field).plain = { value: { message: { init: false } }; ignore_empty: true } ];
-  optional type_common.MessageCommon1               f_message26 = 76 [ (default.field).plain = { value: { message: { init: false } }; skip_eval: true; ignore_empty: true } ];
-  optional type_common.MessageCommon1.Embed1        f_message27 = 77 [ (default.field).plain = { value: { message: { init: false } }; ignore_empty: true; } ];
-  optional type_common.MessageCommon1.Embed1.Embed2 f_message28 = 78 [ (default.field).plain = { value: { message: { init: false } }; skip_eval: true; ignore_empty: true } ];
+  optional MessageOptional1                     f_message21 = 71 [ (default.field).plain = { value: { message: { init: false } }; ignore_empty: true } ];
+  optional MessageOptional1.Embed1              f_message22 = 72 [ (default.field).plain = { value: { message: { init: false } }; skip_eval: true; ignore_empty: true } ];
+  optional MessageOptional1.Embed1.Embed2       f_message23 = 73 [ (default.field).plain = { value: { message: { init: false } }; ignore_empty: true } ];
+  optional external.External1                   f_message24 = 74 [ (default.field).plain = { value: { message: { init: false } }; skip_eval: true; ignore_empty: true } ];
+  optional external.External2.Embed1            f_message25 = 75 [ (default.field).plain = { value: { message: { init: false } }; ignore_empty: true } ];
+  optional private.MessageCommon1               f_message26 = 76 [ (default.field).plain = { value: { message: { init: false } }; skip_eval: true; ignore_empty: true } ];
+  optional private.MessageCommon1.Embed1        f_message27 = 77 [ (default.field).plain = { value: { message: { init: false } }; ignore_empty: true; } ];
+  optional private.MessageCommon1.Embed1.Embed2 f_message28 = 78 [ (default.field).plain = { value: { message: { init: false } }; skip_eval: true; ignore_empty: true } ];
 
   optional google.protobuf.Duration f_duration1 = 91 [ (default.field).plain = {
     value: { duration: { seconds: 100, nanos: 200 } };
@@ -259,7 +259,7 @@ message TypeOptional2 {
     ignore_empty: true;
   } ];
   optional google.protobuf.Any f_any9 = 109 [ (default.field).plain = {
-    value: { any: { type_url: "tests/proto/cases/types/type_common.MessageCommon1" } };
+    value: { any: { type_url: "tests/proto/cases/types/private.MessageCommon1" } };
     ignore_empty: true;
   } ];
 }

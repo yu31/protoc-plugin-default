@@ -10,7 +10,7 @@ import "google/protobuf/timestamp.proto";
 
 import "tests/proto/module/external.proto";
 
-import "tests/proto/cases/types/type_common.proto";
+import "tests/proto/cases/types/private.proto";
 
 import "proto/default.proto";
 
@@ -235,7 +235,7 @@ message TypeMap1 {
       { }
     ];
   } ];
-  map<string, type_common.EnumCommon1> f_enum7 = 57 [ (default.field).map = {
+  map<string, private.EnumCommon1> f_enum7 = 57 [ (default.field).map = {
     kvs: [
       { key: { string: "e1" }, value: { enum: 1 } },
       { key: { string: "e2" }, value: { enum: 3 } },
@@ -317,7 +317,7 @@ message TypeMap1 {
     ];
     skip_eval: false;
   } ];
-  map<string, type_common.MessageCommon1> f_message6 = 76 [ (default.field).map = {
+  map<string, private.MessageCommon1> f_message6 = 76 [ (default.field).map = {
     kvs: [
       { key: { string: "m1" }, value: { message: { init: true } } },
       { key: { string: "m2" }, value: { message: { init: false } } },
@@ -337,7 +337,7 @@ message TypeMap1 {
       { key: { string: "a5" }, value: { any: { type_url: "tests/proto/module/external.External2.Embed1" } } },
       { key: { string: "a6" }, value: { any: { type_url: "google/protobuf/timestamp.Timestamp" } } },
       { key: { string: "a7" }, value: { any: { type_url: "google/protobuf/any.Any" } } },
-      { key: { string: "a8" }, value: { any: { type_url: "tests/proto/cases/types/type_common.MessageCommon1" } } },
+      { key: { string: "a8" }, value: { any: { type_url: "tests/proto/cases/types/private.MessageCommon1" } } },
       {}
     ];
   } ];
@@ -543,7 +543,7 @@ message TypeMap2 {
     ];
     ignore_empty: true;
   } ];
-  map<string, type_common.EnumCommon1> f_enum7 = 57 [ (default.field).map = {
+  map<string, private.EnumCommon1> f_enum7 = 57 [ (default.field).map = {
     kvs: [
       { key: { string: "e1" }, value: { enum: 1 } },
       { key: { string: "e2" }, value: { enum: 3 } },
@@ -629,7 +629,7 @@ message TypeMap2 {
     skip_eval: false;
     ignore_empty: true;
   } ];
-  map<string, type_common.MessageCommon1> f_message6 = 76 [ (default.field).map = {
+  map<string, private.MessageCommon1> f_message6 = 76 [ (default.field).map = {
     kvs: [
       { key: { string: "m1" }, value: { message: { init: true } } },
       { key: { string: "m2" }, value: { message: { init: false } } },
@@ -649,7 +649,7 @@ message TypeMap2 {
       { key: { string: "a5" }, value: { any: { type_url: "tests/proto/module/external.External2.Embed1" } } },
       { key: { string: "a6" }, value: { any: { type_url: "google/protobuf/timestamp.Timestamp" } } },
       { key: { string: "a7" }, value: { any: { type_url: "google/protobuf/any.Any" } } },
-      { key: { string: "a8" }, value: { any: { type_url: "tests/proto/cases/types/type_common.MessageCommon1" } } },
+      { key: { string: "a8" }, value: { any: { type_url: "tests/proto/cases/types/private.MessageCommon1" } } },
       {}
     ];
     ignore_empty: true;

@@ -10,7 +10,7 @@ import "google/protobuf/timestamp.proto";
 
 import "tests/proto/module/external.proto";
 
-import "tests/proto/cases/types/type_common.proto";
+import "tests/proto/cases/types/private.proto";
 
 import "proto/default.proto";
 
@@ -147,7 +147,7 @@ message TypeRepeated1 {
     items: [ { enum: 2 }, { enum: 4 }, { enum: 6 }, {}, {} ];
   } ];
 
-  repeated type_common.EnumCommon1 f_enum7 = 57 [ (default.field).repeated = {
+  repeated private.EnumCommon1 f_enum7 = 57 [ (default.field).repeated = {
     items: [ { enum: 2 }, { enum: 4 }, { enum: 6 }, {}, {} ];
   } ];
 
@@ -201,7 +201,7 @@ message TypeRepeated1 {
     ignore_empty: false;
   } ];
 
-  repeated type_common.MessageCommon1 f_message6 = 76 [ (default.field).repeated = {
+  repeated private.MessageCommon1 f_message6 = 76 [ (default.field).repeated = {
     items: [ { message: { init: true } }, { message: { init: false } }, { message: { init: true } }, { message: {} }, {}, {} ];
     ignore_empty: false;
   } ];
@@ -215,7 +215,7 @@ message TypeRepeated1 {
       { any: { type_url: "tests/proto/module/external.External2.Embed1" } },
       { any: { type_url: "google/protobuf/timestamp.Timestamp" } },
       { any: { type_url: "google/protobuf/any.Any" } },
-      { any: { type_url: "tests/proto/cases/types/type_common.MessageCommon1" } },
+      { any: { type_url: "tests/proto/cases/types/private.MessageCommon1" } },
       { any: {} },
       {},
       {}
@@ -334,7 +334,7 @@ message TypeRepeated2 {
     items: [ { enum: 2 }, { enum: 4 }, { enum: 6 }, {}, {} ];
     ignore_empty: true;
   } ];
-  repeated type_common.EnumCommon1 f_enum7 = 57 [ (default.field).repeated = {
+  repeated private.EnumCommon1 f_enum7 = 57 [ (default.field).repeated = {
     items: [ { enum: 2 }, { enum: 4 }, { enum: 6 }, {}, {} ];
     ignore_empty: true;
   } ];
@@ -390,7 +390,7 @@ message TypeRepeated2 {
     items: [ { message: { init: true } }, { message: { init: false } }, { message: { init: true } }, { message: {} }, {}, {} ];
     ignore_empty: true;
   } ];
-  repeated type_common.MessageCommon1 f_message6 = 76 [ (default.field).repeated = {
+  repeated private.MessageCommon1 f_message6 = 76 [ (default.field).repeated = {
     items: [ { message: { init: true } }, { message: { init: false } }, { message: { init: true } }, { message: {} }, {}, {} ];
     skip_eval: false;
     ignore_empty: true;
@@ -405,7 +405,7 @@ message TypeRepeated2 {
       { any: { type_url: "tests/proto/module/external.External2.Embed1" } },
       { any: { type_url: "google/protobuf/timestamp.Timestamp" } },
       { any: { type_url: "google/protobuf/any.Any" } },
-      { any: { type_url: "tests/proto/cases/types/type_common.MessageCommon1" } },
+      { any: { type_url: "tests/proto/cases/types/private.MessageCommon1" } },
       { any: {} },
       {},
       {}
