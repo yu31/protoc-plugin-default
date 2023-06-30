@@ -13,5 +13,5 @@ option go_package = "xgo/tests/pb/pbinvalid";
 import "proto/default.proto";
 
 message String16 {
-  string field17 = 17 [ (default.field).plain = { value: { message: { init: true } } } ];
+  string field16 = 16 [ (default.field).plain = { value: { message: { init: true } } } ];
 }

@@ -13,5 +13,5 @@ import "tests/proto/module/external.proto";
 import "proto/default.proto";
 
 message Enum16 {
-  external.Month1 field17 = 17 [ (default.field).plain = { value: { message: { init: true } } } ];
+  external.Month1 field16 = 16 [ (default.field).plain = { value: { message: { init: true } } } ];
 }

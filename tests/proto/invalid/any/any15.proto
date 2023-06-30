@@ -13,5 +13,5 @@ import "google/protobuf/any.proto";
 import "proto/default.proto";
 
 message Any15 {
-  google.protobuf.Any field16 = 16 [ (default.field).plain = { value: { bytes: "a" } } ];
+  google.protobuf.Any field15 = 15 [ (default.field).plain = { value: { bytes: "a" } } ];
 }

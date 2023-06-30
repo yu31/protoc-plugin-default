@@ -13,5 +13,5 @@ option go_package = "xgo/tests/pb/pbinvalid";
 import "proto/default.proto";
 
 message Repeated20 {
-  repeated string field20 = 20 [ (default.field).plain = { value: { timestamp: { seconds: 1, nanos: 1 } } } ];
+  repeated string field20 = 20 [ (default.field).repeated = { items: { timestamp: { seconds: 1, nanos: 1 } } } ];
 }

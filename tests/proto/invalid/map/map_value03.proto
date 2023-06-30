@@ -12,6 +12,6 @@ option go_package = "xgo/tests/pb/pbinvalid";
 
 import "proto/default.proto";
 
-message Map19 {
-  map<string, string> field19 = 19 [ (default.field).plain = { value: { duration: { seconds: 1, nanos: 1 } } } ];
+message MapValue03 {
+  map<string, string> field03 = 3 [ (default.field).map = { kvs: [ { value: { int64: 0 } } ] } ];
 }

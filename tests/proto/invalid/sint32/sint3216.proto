@@ -13,5 +13,5 @@ option go_package = "xgo/tests/pb/pbinvalid";
 import "proto/default.proto";
 
 message SInt3216 {
-  sint32 field17 = 17 [ (default.field).plain = { value: { message: { init: true } } } ];
+  sint32 field16 = 16 [ (default.field).plain = { value: { message: { init: true } } } ];
 }

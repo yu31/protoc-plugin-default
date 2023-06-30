@@ -13,5 +13,5 @@ option go_package = "xgo/tests/pb/pbinvalid";
 import "proto/default.proto";
 
 message Bool15 {
-  bool field16 = 16 [ (default.field).plain = { value: { bytes: "a" } } ];
+  bool field15 = 15 [ (default.field).plain = { value: { bytes: "a" } } ];
 }

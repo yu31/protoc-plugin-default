@@ -13,5 +13,5 @@ option go_package = "xgo/tests/pb/pbinvalid";
 import "proto/default.proto";
 
 message UInt3215 {
-  uint32 field16 = 16 [ (default.field).plain = { value: { bytes: "a" } } ];
+  uint32 field15 = 15 [ (default.field).plain = { value: { bytes: "a" } } ];
 }

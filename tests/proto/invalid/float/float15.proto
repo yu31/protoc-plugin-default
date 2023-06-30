@@ -13,5 +13,5 @@ option go_package = "xgo/tests/pb/pbinvalid";
 import "proto/default.proto";
 
 message Float15 {
-  float field16 = 16 [ (default.field).plain = { value: { bytes: "a" } } ];
+  float field15 = 15 [ (default.field).plain = { value: { bytes: "a" } } ];
 }

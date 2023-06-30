@@ -13,5 +13,5 @@ option go_package = "xgo/tests/pb/pbinvalid";
 import "proto/default.proto";
 
 message Repeated17 {
-  repeated string field17 = 17 [ (default.field).plain = { value: { message: { init: true } } } ];
+  repeated string field17 = 17 [ (default.field).repeated = { items: { enum: 0 } } ];
 }

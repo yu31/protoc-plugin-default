@@ -13,5 +13,5 @@ option go_package = "xgo/tests/pb/pbinvalid";
 import "proto/default.proto";
 
 message Repeated13 {
-  repeated string field13 = 13 [ (default.field).plain = { value: { double: 0 } } ];
+  repeated string field13 = 13 [ (default.field).repeated = { items: { double: 0 } } ];
 }

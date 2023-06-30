@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package map;
+package message;
 
 option go_package = "xgo/tests/pb/pbinvalid";
 
@@ -8,10 +8,10 @@ option go_package = "xgo/tests/pb/pbinvalid";
 //import "google/protobuf/duration.proto";
 //import "google/protobuf/timestamp.proto";
 //
-//import "tests/proto/module/external.proto";
+import "tests/proto/module/external.proto";
 
 import "proto/default.proto";
 
-message Map06 {
-  map<string, string> field06 = 6 [ (default.field).plain = { value: { sfixed32: 0 } } ];
+message Message17 {
+  external.External1 field17 = 17 [ (default.field).plain = { value: { enum: 0 } } ];
 }

@@ -12,6 +12,6 @@ option go_package = "xgo/tests/pb/pbinvalid";
 
 import "proto/default.proto";
 
-message Map10 {
-  map<string, string> field10 = 10 [ (default.field).plain = { value: { fixed32: 0 } } ];
+message MapValue04 {
+  map<string, string> field04 = 4 [ (default.field).map = { kvs: [ { key: { sint32: 0 } } ] } ];
 }
