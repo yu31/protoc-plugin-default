@@ -24,7 +24,7 @@ function runCase() {
     echo "${ret}"
   fi
 
-  if echo "${ret}" |grep "ERROR - godefault" > /dev/null; then
+  if echo "${ret}" |grep '\[ERROR\] - \[plugin: godefault\]' > /dev/null; then
     echo "--- PASS: ${file}"
   else
     echo "    Expected error by godefault, but it passing or other error occurs"
@@ -38,5 +38,10 @@ for file in ${BASE_DIR}/${KIND}/*; do
   runCase "${file}"
 done
 
+echo "--------------------------------------------"
+echo "------ ALL test cases are successful ------"
+echo "--------------------------------------------"
+
 # Delete generated files.
 /bin/rm -fr ./xgo/tests/pb/pbinvalid/*;
+
