@@ -86,14 +86,14 @@ test-only:  ## Run test cases without generated codes.
 #bench-only:
 #	@[[ ${VERBOSE} = "yes" ]] && set -x; go test -test.bench="." -test.run="Benchmark" -benchmem -count=1 ./xgo/tests/cases/...;
 
-.PHONY: test-error-go
-test-error-go:   ## Run test cases for invalid parameters in tags for golang.
-test-error-go: compile
-	@[[ ${VERBOSE} = "yes" ]] && bash -x scripts/test_error_go.sh "${CASE}" || bash scripts/test_error_go.sh "${CASE}"
+.PHONY: test-invalid-go
+test-invalid-go: ## Run test cases for invalid parameters in tags for golang.
+test-invalid-go: compile
+	@[[ ${VERBOSE} = "yes" ]] && bash -x scripts/test_invalid_go.sh || bash scripts/test_invalid_go.sh
 
-.PHONY: test-error
-test-error:  ## Run test cases for invalid parameters in tags.
-test-error: test-error-go
+.PHONY: test-invalid
+test-invalid: ## Run test cases for invalid parameters in options.
+test-invalid: test-invalid-go
 
 # publishing java jar to central repository
 .PHONY: java-release
