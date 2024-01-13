@@ -5,33 +5,24 @@ set -e;
 current_path=$(cd "$(dirname "${0}")" || exit 1; pwd)
 cd "${current_path}"/.. || exit 1
 
-CASE="$1"
-DIR="$2"
+BASE_DIR="./xgo/tests/cases"
 
-ROOT="./xgo/tests/cases"
+# LEVEL0/CASE is set by environment variables;
+# e.g: LEVEL0=types CASE=Test_TypeOneOf1 make test-only
+LEVEL0="${LEVEL0}"
+CASE="${CASE}"
+
+if [ -z "${LEVEL0}" ]; then
+  LEVEL0="*"
+fi
 
 function runCases() {
-  dir="$1"
+  test_dir="$1"
 
-  go test -v -test.count=1 -failfast -test.run="${CASE}" "${dir}/..."
+  go test -v -test.count=1 -failfast -test.run="${CASE}" "${test_dir}/..."
   return
 }
 
-# run test cases for types
-if [ -n "${DIR}" ]; then
-  runCases "${ROOT}/${DIR}"
-  exit $?
-fi
-
-# run test cases in boundary.
-runCases "${ROOT}/boundary"
-
-# run test cases in types.
-runCases "${ROOT}/types"
-
-# run test cases in customfn
-runCases "${ROOT}/customfn"
-
-# run test cases in empty
-runCases "${ROOT}/empty"
-
+for dir in "${BASE_DIR}"/${LEVEL0}; do
+  runCases "${dir}"
+done
