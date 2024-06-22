@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package cycle_reference;
+
+option go_package = "xgo/tests/pb/pbcycle";
+
+import "proto/default.proto";
+
+message CycleMessageA {
+  string t1  = 1 [ (default.field).plain = { value: { string: "123" } } ];
+
+  CycleMessageB msgB = 12 [ (default.field).plain = { value: { message: { init: true } }; skip_eval: false } ];
+}
+
+message CycleMessageB {
+  string t1  = 1 [ (default.field).plain = { value: { string: "456" } } ];
+
+  CycleMessageC msgC = 13 [ (default.field).plain = { value: { message: { init: true } }; skip_eval: false } ];
+}
+
+message CycleMessageC {
+  string t1  = 1 [ (default.field).plain = { value: { string: "789" } } ];
+
+  CycleMessageA msgA = 11 [ (default.field).plain = { value: { message: { init: true } }; skip_eval: false } ];
+}
